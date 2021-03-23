@@ -1,19 +1,22 @@
 {
-    "name": "api_doacao",
-    "version": "0.1.0",
-    "description": "node app ",
-    "main": "app.js",
-    "scripts": {
-    "start": "node app.js"
+  "name": "api_doacao",
+  "version": "0.1.0",
+  "description": "node app ",
+  "main": "Start/app.js",
+  "scripts": {
+    "start": "node Start/app.js"
   },
-    "repository": {
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/Hunters-unity/API_doacao"
   },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
+  "author": "",
+  "license": "ISC",
+  "bugs": {
     "url": "https://github.com/Hunters-unity/API_doacao"
   },
-    "homepage": "https://github.com/Hunters-unity/API_doacao"
+  "homepage": "https://github.com/Hunters-unity/API_doacao",
+  "dependencies": {
+    "express": "^4.17.1"
   }
+}
