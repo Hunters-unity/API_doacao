@@ -1,12 +1,17 @@
 const express = require('express')
-const bodyParser = require('body-parser')
+// const bodyParser = require('body-parser') 
+
+//Importação das rotas
+var escolasRouter = require('../App/Routes/escolas')
 
 const app = express()
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false}))
+app.use(express.json())
+app.use(express.urlencoded({ extended: false}))
 
-require('../App/Controllers/DoacaoController')(app);
+// require('../App/Controllers/DoacaoController')(app);
+app.use('/escolas', escolasRouter)
+
 
 app.listen(3000, () => console.log('servidor rodando na porta 3000'))
 

@@ -7,7 +7,7 @@ const EscolaSchema = new mongoose.Schema({
         require: true,
     },
     cep: {
-        type: parseInt,
+        type: String,
         require: true,
     },
     endereco: {
@@ -40,7 +40,7 @@ const EscolaSchema = new mongoose.Schema({
         default: Date.now,
     },
     logo: {
-        type: binData
+        type: String
     },
 });
 
