@@ -11,7 +11,7 @@ const ItemDoacaoSchema = new mongoose.Schema({
         require: true,
     },
     valor: {
-        type: double,
+        type: Number,
         require: true,
     },
     doado: {

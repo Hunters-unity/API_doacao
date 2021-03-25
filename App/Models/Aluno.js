@@ -10,7 +10,7 @@ const AlunoSchema = new mongoose.Schema({
         require: true,
     },
     ano_letivo: {
-        type: int,
+        type: Number,
         require: true,
     },
     escola: {

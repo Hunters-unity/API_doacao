@@ -7,11 +7,11 @@ const EscolaSchema = new mongoose.Schema({
         require: true,
     },
     cep: {
-        type: int,
+        type: parseInt,
         require: true,
     },
     endereco: {
-        type: String,
+        type: Number,
         unique: true,
         require: true,
     },
@@ -32,7 +32,7 @@ const EscolaSchema = new mongoose.Schema({
         require: true,
     },
     telefone: {
-        type: long,
+        type: Number,
         require: true,
     },
     dataAdicao: {

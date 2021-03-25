@@ -16,7 +16,7 @@ const ListaDoacaoSchema = new mongoose.Schema({
         default: Date.now,
     },
     enderecoEscola:{
-        type: String,
+        type: String, //ver relações no mongo
         require: true
     }
 });

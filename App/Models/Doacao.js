@@ -13,10 +13,10 @@ const doacaoSchema = new mongoose.Schema({
         type: String
     },
     telefone: {
-        type: int,
+        type: Number,
     },
     itens_doados: {
-        type: [String],
+        type: [String], //ver relações no mongo
         require: true
     },
     dataDoacao: {
