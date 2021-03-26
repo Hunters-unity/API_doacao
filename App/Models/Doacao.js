@@ -1,5 +1,6 @@
 const mongoose = require('../../Database');
 
+
 const doacaoSchema = new mongoose.Schema({
     nome: {
         type: String,
@@ -16,7 +17,8 @@ const doacaoSchema = new mongoose.Schema({
         type: Number,
     },
     itens_doados: {
-        type: [String], //ver relações no mongo
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'ItemDoacao',
         require: true
     },
     dataDoacao: {

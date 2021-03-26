@@ -1,6 +1,5 @@
 const mongoose = require('../../Database');
-const Aluno = require('./Aluno')
-const lista = require('./Lista_doacao')
+
 
 const ResponsavelSchema = new mongoose.Schema({
     nome: {
@@ -20,7 +19,8 @@ const ResponsavelSchema = new mongoose.Schema({
         require: true,
     },
     aluno: {
-        type: String, //ver relações no mongo
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Aluno',
         require: true
     },
     dataAdicao: {

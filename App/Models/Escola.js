@@ -40,7 +40,7 @@ const EscolaSchema = new mongoose.Schema({
         default: Date.now,
     },
     logo: {
-        type: String
+        type: String,
     },
 });
 

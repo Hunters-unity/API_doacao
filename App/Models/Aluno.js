@@ -1,7 +1,4 @@
 const mongoose = require('../../Database');
-const Escola = require('./Escola')
-const Lista = require('./Lista_doacao')
-const Reponsavel = require('./Responsavel')
 
 
 const AlunoSchema = new mongoose.Schema({
@@ -14,15 +11,18 @@ const AlunoSchema = new mongoose.Schema({
         require: true,
     },
     escola: {
-        type: {Escola},
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Escola',
         require: true,
     },
     lista: {
-        type: [{Lista}],
+        type: [mongoose.Schema.Types.ObjectId],
+        ref: 'Lista',
         require: true,
     },
     reponsavel: {
-        type: {Reponsavel},
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Responsavel',
         require: true
     },
     dataAdicao: {

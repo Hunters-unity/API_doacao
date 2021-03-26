@@ -1,5 +1,5 @@
 const mongoose = require('../../Database');
-const Doacao = require('./Doacao')
+
 
 const ItemDoacaoSchema = new mongoose.Schema({
     item: {
@@ -20,7 +20,8 @@ const ItemDoacaoSchema = new mongoose.Schema({
         default: false
     },
     doador: {
-        type: {Doacao}
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'ItemDoacao'
     }
 });
 
