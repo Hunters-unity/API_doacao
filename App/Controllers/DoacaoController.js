@@ -16,9 +16,9 @@ router.get('/', async (req,res) =>{
     }
 })
 
-router.get('/:id', async (req,res) =>{
+router.get('/:doacaoID', async (req,res) =>{
     try{
-        const  doacao = await Doacao.findById(req.params.id);
+        const  doacao = await Doacao.findById(req.params.doacaoID);
 
         return res.send({doacao});
     } catch{
@@ -30,24 +30,25 @@ router.post('/', async (req,res) =>{
     try{
         const doacao = await Doacao.create(req.body);
 
-        return res.send({doacao});
+        return res.status(201).send({doacao});
     }
     catch{
         return res.status(400).send( {erro: "erro ao criar nova doação" });
     }
 })
 
-router.put('/:id', async (req,res) =>{
+router.put('/:doacaoID', async (req,res) =>{
     try{
-
+        res.send("rota de edição não configurada")
     } catch{
         return res.status(400).send( {erro: "erro ao excluir doação" });
     }
 })
 
-router.delete('/:id', async (req,res) =>{
+router.delete('/:doacaoID', async (req,res) =>{
     try{
-        await Doacao.findByIdAndRemove(req.params.id);
+        await Doacao.findByIdAndRemove(req.params.doacaoID);
+        res.status(204).send();
     } catch{
         return res.status(400).send( {erro: "erro ao procurar doação" });
     }
