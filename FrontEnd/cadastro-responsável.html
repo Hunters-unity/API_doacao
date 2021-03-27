@@ -1,38 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<!-- metadados -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" type="text/css" href="form-style.css" media="screen">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="form-style.css" media="screen">
+		<title>Responsável do Aluno</title>
+		<script type="text/javascript" src="mascaras-e-cep.js"></script>
+	</head>
 
-	<title>Cadastre sua Escola</title>
+	<body>
 
-	<script type="text/javascript" src="mascaras-e-cep.js"></script>
-</head>
-
-
-<body>
-	<div class="container">
 		<header>
-			<h1>Cadastre sua Escola! <br> É simples, rápido e GRÁTIS!</h1>
+			<h1>Informações Principais do Responsável</h1>
 		</header>
 
 		<form>
-			<fieldset class="informacoesEscola">
-				<label for="nomeEscola"><strong>Nome da Escola</strong></label>
-	            <input type="text" name="nomeEscola" id="nomeEscola" placeholder="Nome completo da escola" autofocus required> <br>
-
-	             <label for="redeEnsino"><strong>Rede de Ensino</strong></label>
-	                <select id="redeEnsino" required>
-	                  <option selected disabled value="">Selecione</option>
-	                  <option>Estadual</option>
-	                  <option>Municipal</option>
-	                </select> <br>
-
-	            <label for="diretoriaEnsino"><b>Diretoria de Ensino</b></label>
-	            <input type="text" name="diretoriaEnsino" id="diretoriaEnsino" required>
+			<fieldset class="informacoesResponsavel">
+				<label for="nomeResponsavel"><b>Nome Completo</b></label>
+	            <input type="text" name="nomeResponsavel" id="nomeResponsavel" placeholder="Digite seu nome completo" autofocus required> 
+	             
+	            <label for="dataNascimento"><b>Data de Nascimento</b></label>
+	            <input type="date" name="dataNascimento" id="dataNascimento" required>
 
 	            <label for="totalAlunos"><strong>Número total de alunos</strong></label>
 	            <input type="text" name="totalAlunos" id="totalAlunos" required>
@@ -70,11 +59,9 @@
 
 			<button class="botao" type="submit" onsubmit="">Enviar</button>
 
-			
 		</form>
-	</div>
 
-	
-</body>
+
+	</body>
 
 </html>
