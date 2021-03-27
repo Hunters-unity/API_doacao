@@ -16,11 +16,11 @@ const doacaoSchema = new mongoose.Schema({
     telefone: {
         type: Number,
     },
-    itens_doados: {
+    itens_doados:[{
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'ItemDoacao',
-        require: true
-    },
+        //require: true
+    }],
     dataDoacao: {
         type: Date,
         default: Date.now
