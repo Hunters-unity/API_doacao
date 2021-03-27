@@ -18,8 +18,7 @@ const doacaoSchema = new mongoose.Schema({
     },
     itens_doados:[{
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'ItemDoacao',
-        //require: true
+        ref: 'ItemDoacao'
     }],
     dataDoacao: {
         type: Date,

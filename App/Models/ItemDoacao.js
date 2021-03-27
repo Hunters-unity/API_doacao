@@ -18,11 +18,11 @@ const itemDoacaoSchema = new mongoose.Schema({
         type: String,
         require: true,
         default: false
-    }/*,
+    },
     doador: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Doacao'
-    }*/
+    }
 });
 
 const ItemDoacao = mongoose.model('ItemDoacao', itemDoacaoSchema);

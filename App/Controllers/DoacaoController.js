@@ -8,9 +8,9 @@ const router = express.Router();
 
 router.get('/', async (req,res) =>{
     try{
-        const  doacao = await Doacao.find().limit(5);
-
+        const  doacao = await Doacao.find().populate('itens_doados').limit(5);
         return res.send({doacao});
+
     } catch{
         return res.status(400).send( {erro: "erro ao procurar doações" });
     }
@@ -18,7 +18,7 @@ router.get('/', async (req,res) =>{
 
 router.get('/:doacaoID', async (req,res) =>{
     try{
-        const  doacao = await Doacao.findById(req.params.doacaoID);
+        const  doacao = await Doacao.findById(req.params.doacaoID).populate('itens_doados');
 
         return res.send({doacao});
     } catch{
@@ -26,22 +26,25 @@ router.get('/:doacaoID', async (req,res) =>{
     }
 })
 
+
+
 router.post('/', async (req,res) =>{
     try{
-        const doacao = await Doacao.create(req.body);
+        const { nome, anonimo, email, telefone, itens_doados} = req.body;
+
+        
+        const doacao = await Doacao.create({nome, anonimo,email,telefone,itens_doados});
+        
+        itens_doados.map( async item =>{
+            await ItemDoacao.updateMany({_id: item},{$set: {doador: doacao._id, doado: true}});
+        });
+
 
         return res.status(201).send({doacao});
     }
-    catch{
+    catch (err){
+        console.log(err);
         return res.status(400).send( {erro: "erro ao criar nova doação" });
-    }
-})
-
-router.put('/:doacaoID', async (req,res) =>{
-    try{
-        res.send("rota de edição não configurada")
-    } catch{
-        return res.status(400).send( {erro: "erro ao excluir doação" });
     }
 })
 
@@ -55,3 +58,4 @@ router.delete('/:doacaoID', async (req,res) =>{
 })
 
  module.exports = app => app.use('/doacao', router);
+
