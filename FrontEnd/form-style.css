@@ -34,7 +34,7 @@ header{
 	font-weight: 600;
 }
 
-.titulo-formulario, .container p {
+.titulo-formulario, .subtitulo-formulario {
 	color: steelblue;
 	text-align: center;
 	
