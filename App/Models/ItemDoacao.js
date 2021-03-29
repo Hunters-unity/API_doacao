@@ -1,7 +1,7 @@
 const mongoose = require('../../Database');
 
 
-const ItemDoacaoSchema = new mongoose.Schema({
+const itemDoacaoSchema = new mongoose.Schema({
     item: {
         type: String,
         require: true,
@@ -15,16 +15,16 @@ const ItemDoacaoSchema = new mongoose.Schema({
         require: true,
     },
     doado: {
-        type: Boolean,
+        type: String,
         require: true,
         default: false
     },
     doador: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'ItemDoacao'
+        ref: 'Doacao'
     }
 });
 
-const ItemDoacao = mongoose.model('Itemdoacao', ItemDoacaoSchema);
+const ItemDoacao = mongoose.model('ItemDoacao', itemDoacaoSchema);
 
 module.exports = ItemDoacao;

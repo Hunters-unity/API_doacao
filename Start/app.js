@@ -9,7 +9,7 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false}))
 
-// require('../App/Controllers/DoacaoController')(app);
+require('../App/Controllers/DoacaoController')(app);
 app.use('/escolas', escolasRouter)
 
 
