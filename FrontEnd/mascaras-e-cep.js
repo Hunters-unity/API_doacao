@@ -34,14 +34,14 @@ function mascaraCep(){
   }
 
 
-function limpa_formulário_cep() {
+function limpaFormulárioCep() {
   document.getElementById('endereco').value=("");
   document.getElementById('bairro').value=("");
   document.getElementById('cidade').value=("");
   document.getElementById('estado').value=("");
 }
 
-function meu_callback(conteudo) {
+function meuCallback(conteudo) {
  if (!("erro" in conteudo)) {
     //Atualiza os campos com os valores.
     document.getElementById('endereco').value=(conteudo.logradouro);
@@ -50,12 +50,12 @@ function meu_callback(conteudo) {
     document.getElementById('estado').value=(conteudo.uf);
   } 
  else {
-   limpa_formulário_cep();
+   limpaFormulárioCep();
    alert("CEP não encontrado.");
  }
 }
 
-function pesquisacep(valor) {
+function pesquisaCep(valor) {
   var cep = valor.replace(/\D/g, '');
   if (cep != "") {
     var validacep = /^[0-9]{8}$/;
@@ -66,16 +66,16 @@ function pesquisacep(valor) {
       document.getElementById('cidade').value="...";
       document.getElementById('estado').value="...";
       var script = document.createElement('script');
-      script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+      script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meuCallback';
       document.body.appendChild(script);
     } 
     else {
-      limpa_formulário_cep();
+      limpaFormulárioCep();
       alert("Formato de CEP inválido.");
     }
   }
   else {
-    limpa_formulário_cep();
+    limpaFormulárioCep();
   }
 }
   
