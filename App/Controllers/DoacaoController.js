@@ -2,10 +2,6 @@ const Doacao = require('../Models/Doacao');
 const ItemDoacao = require('../Models/ItemDoacao');
 
 const DoacaoController = {
-    //index: (req, res) => {
-    //    res.send("Bem vindo à rota de escolas")
-    //}
-//}
 
     lista: async (req,res) =>{
         try{
