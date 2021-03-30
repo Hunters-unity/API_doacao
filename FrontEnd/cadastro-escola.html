@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cadastre sua Escola</title>
+
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="form-style.css" media="screen">
+
+	<script type="text/javascript" src="mascaras-e-cep.js"></script>
+</head>
+
+
+<body>
+
+	<div class="moldura">
+		<header >
+			<h1>Cadastre sua Escola!</h1>
+			<p>É simples, rápido e GRÁTIS!</p>
+		</header>
+	
+		<div class="container">
+			<h2 class="titulo-formulario">Informações Principais da Escola</h2>
+			<h5 class="subtitulo-formulario">Passo 2 - 4</h5>
+			<form>
+				<fieldset class="informacoes-escola">
+					<div class="form-row">
+							<label for="diretoria-ensino"><b>Diretoria de Ensino</b></label>
+		            		<input class="form-control" type="text" name="diretoria-ensino" id="diretoria-ensino" autofocus required>
+					</div>
+					<div class="form-row">
+						<div class="col-sm">
+								<label for="rede-ensino"><strong>Rede de Ensino</strong></label>
+				                <select class="form-control" id="rede-ensino" required>
+				                  <option selected disabled value="">Selecione</option>
+				                  <option>Estadual</option>
+				                  <option>Municipal</option>
+				                </select>	
+						</div>
+						<div class="col-sm">
+								<label for="total-alunos"><strong>Número total de alunos</strong></label>
+			            		<input class="form-control" type="text" name="total-alunos" id="total-alunos" required>
+						</div>	
+					</div>
+			
+					<div class="form-row">
+						<label for="nome-escola"><strong>Nome da Escola</strong></label>
+						<input class="form-control" type="text" name="nome-escola" id="nome-escola" placeholder="Nome completo da escola" required>
+					</div>
+		      	</fieldset>
+		      	<hr>
+
+				<fieldset class="form-endereco">
+					<div class="form-row">
+						<div class="col-sm">
+							<label for="cep"><b>CEP</b></label>
+				            <input class="form-control" type="text" name="cep" id="cep" onblur="pesquisaCep(this.value)" onkeypress="mascaraCep()" maxlength="9" required>	
+						</div>
+
+			            <div class="col-sm">
+							<label for="estado"><strong>Estado</strong></label>
+				            <input class="form-control" type="text" name="estado" id="estado" required readonly>	
+						</div>
+		 				
+			            <div class="col-sm">
+							<label for="cidade"><strong>Cidade</strong></label>
+				            <input class="form-control" type="text" name="cidade" id="cidade" required readonly>		
+						</div>
+			      	</div>
+			      	<div class="form-row">
+				      	<label for="endereco"><strong>Endereço</strong></label>
+			            <input class="form-control" type="text" name="endereco" id="endereco" required readonly>	
+			      	</div>
+		            <div class="form-row">
+		            	<div class="col-sm-2">
+			            <label for="numero-endereco"><b>Numero</b></label>
+			            <input class="form-control" type="text" name="numero-endereco" id="numero-endereco" required>
+						</div>
+
+						<div class="col-sm">	
+							<label for="complemento-endereco"><b>Complemento</b></label>
+				            <input class="form-control" type="text" name="complemento-endereco" id="complemento-endereco" required>
+				        </div>
+
+				        <div class="col-sm">
+				            <label for="bairro"><strong>Bairro</strong></label>
+				            <input class="form-control" type="text" name="bairro" id="bairro" required readonly>
+			            </div>
+					</div>
+				</fieldset>
+				<hr>
+				<fieldset class="form-contato">
+					<div class="form-row">
+						<label for="email"><strong>E-mail:</strong></label>
+						<input class="form-control" type=email id="email">
+					</div>
+					<div class="form-row">
+						<div class="col-sm">
+							<label for="telefone"><b>Telefone: </b></label>
+							<input class="form-control" type=tel id="telefone" onkeypress="mascaraTelefone()" maxlength="13">
+						</div>
+						<div class="col-sm">
+							<label for="cel"><b>WhatsApp:</b></label>
+							<input class="form-control" type=tel id="cel" onkeypress="mascaraCel()" maxlength="14">
+						</div>
+					</div>
+					<div class="form-row float-right">
+						<label class="form-check-label" for="mensagem-whatsapp"><input class="form-check-input" type=checkbox id="mensagem-whatsapp"><b>Permitir o envio de mensagens via WhatsApp?</b></label>
+					</div>
+				
+				</fieldset>
+
+				<button class="botao btn btn-primary " type="submit" onsubmit="">Enviar</button>
+			</form>
+		</div>
+	</div>	
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>	
+</body>
+
+</html>
