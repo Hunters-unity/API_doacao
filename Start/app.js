@@ -9,9 +9,10 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false}))
 
-require('../App/Controllers/DoacaoController')(app);
+require('../App/Routes/doacao')(app);
 app.use('/escolas', escolasRouter)
 
 
-app.listen(3000, () => console.log('servidor rodando na porta 3000'))
+
+app.listen(3001, () => console.log('servidor rodando na porta 3001'))
 
