@@ -7,4 +7,4 @@ router.get('/listar', EscolaController.listar);
 router.delete('/excluir/:id', EscolaController.excluir);
 
 
-module.exports = router;
+module.exports =  app => app.use('/escolas', router);
