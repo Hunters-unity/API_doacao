@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Faça sua Doação</title>
+
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="form-style.css" media="screen">
+
+	<script type="text/javascript" src="mascaras-e-cep.js"></script>
+</head>
+
+
+<body>
+
+	<div class="moldura">
+		<header  >
+			<h1>Faça sua Doação!</h1>
+		</header>
+	
+		<div class="container">
+			<div class="card mb-3" style="max-width: 540px;">
+				<div class="row no-gutters">
+					<div class="col-sm-5">
+						<img src="avatar-crianca.png" alt="ilustração de menina ruiva">
+					</div>
+					<div class="col-sm-7">
+						<div class="card-body text-center">
+							<h5 class="card-title" id="nome-crianca">Maria</h5>
+							<p class="card-text" id="nome-escola">Escola Estadual Plínio Barreto</p>
+							<p class="card-text">9<sup>o</sup> ano</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<h4 class="subtitulo-formulario">Lista de Materiais</h4>
+
+			<div class="row">
+				<div class="col-sm">
+					<p class="titulo-pequeno">Nome do Material</p>
+					<ul>
+						<li>Lápis</li>
+						<li>Estojo</li>
+						<li>Mochila</li>
+						<li>Celular</li>
+					</ul>
+				</div>
+				<div class="col-sm">
+					<form>
+					<fieldset class="materiais-doados">
+					<legend class="titulo-pequeno">Doar?</legend>
+					<p><label><input type=checkbox>Valor R$ 00.00</label></p>
+					<p><label><input type=checkbox>Valor R$ 00.00</label></p>
+					<p><label><input type=checkbox>Valor R$ 00.00</label></p>
+					<p><label><input type=checkbox>Valor R$ 00.00</label></p>
+				</fieldset>
+			</form>
+				</div>
+			</div>
+		
+			
+			<hr>
+			<h4 class="subtitulo-formulario">Ponto de Entrega</h4>
+			<p class="titulo-pequeno" id="nome-escola">Escola Estadual Plínio Barreto</p>
+			<p>Endereço: Lorem Ipsum</p>
+			<p>Informações: Dolor sit amet</p>
+			<hr>
+			<h4 class="subtitulo-formulario">Detalhes da Doação</h4>
+			<p class="titulo-pequeno">Nome do Doador</p>
+			<p id="nome-doador">João da Silva</p>
+			<p class="titulo-pequeno">Itens a serem doados</p>
+			<p id="item-doacao-1">Estojo</p>
+			<p id="item-doacao-2">Celular</p>
+
+
+
+			<form>
+				<fieldset>
+					<div class="form-row">
+						<label class="form-check-label" for="doacao-anonima">
+							<input class="form-check-input" type=checkbox id="doacao-anonima"><b>Doação anônima?</b>
+						</label>
+					</div>
+				</fieldset>
+
+				<button class="botao btn btn-primary " type="submit" onsubmit="">Enviar</button>
+			</form>
+		</div>
+	</div>	
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>	
+</body>
+
+</html>
