@@ -91,8 +91,9 @@ class PaginaDoacao extends Component{
                         <h4 className="subtitulo-formulario">Detalhes da Doação</h4>
                         <hr/>
                         <div>
-                            <p className="titulo-pequeno">Nome do Doador</p>
-                            <input type="text" placeholder="Digite seu nome" id="nome-doador"/>
+                            <label for="nome-doador" className="titulo-pequeno">Nome do Doador</label>
+                            <input className="form-control" type="text" placeholder="Digite seu nome" name="nome-doador" id="nome-doador"/>
+                            
                             <p className="titulo-pequeno">Itens a serem doados</p>
                             <ul>
                                 {this.listaDoados.map((categoria,index) => {
