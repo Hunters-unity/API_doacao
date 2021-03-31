@@ -7,16 +7,36 @@ class PaginaDoacao extends Component{
     constructor(){
         super();
         this.nomeEscola = "Escola Estadual Plínio Barreto";
+        this.nomeAluno = "Maria"
+        this.anoAluno = "9"
         this.enderecoEscola = "Patati patatá";
         this.listaMateriais = ["Lápis","Borracha","Caderno","Mochila"];
         this.listaValor = ["1","2","10","20"]
         this.listaDoados = [""];
+        this.anonimo = false;
+        this.state = {};
+    }
+    removeItemOnce(arr, value) {
+        var index = arr.indexOf(value);
+        if (index > -1) {
+          arr.splice(index, 1);
+        }
+        return arr;
     }
 
-    handlerAddItem(){
-        console.log("teste")
-        var text = document.getElementById('item-a-doar')
-        this.listaDoados.push(text);
+    handlerAddItem(evento){
+        var doar = evento.target.checked;
+        if (doar){
+            this.listaDoados.push("item")
+        }else{
+            this.removeItemOnce(this.listaDoados, "item")
+        }
+        this.setState({
+            doados: this.listaDoados
+        })
+    }
+    handlerAnonimo(){
+        this.anonimo = !this.anonimo
     }
     
     render(){
@@ -35,9 +55,9 @@ class PaginaDoacao extends Component{
                                 </div>
                                 <div className="col-sm-7">
                                     <div className="card-body text-center">
-                                    <h5 className="card-title" id="nome-crianca">Maria</h5>
+                                    <h5 className="card-title" id="nome-crianca">{this.nomeAluno}</h5>
                                     <p className="card-text" id="nome-escola">{this.nomeEscola}</p>
-                                    <p className="card-text">9<sup>o</sup> ano</p>
+                                    <p className="card-text">{this.anoAluno}<sup>o</sup> ano</p>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +102,7 @@ class PaginaDoacao extends Component{
                                 </li>
                                 )})}
                             </ul>
-                            <input type="checkbox" id="doacao-anonima"/>
+                            <input type="checkbox" id="doacao-anonima" onChange={this.handlerAnonimo.bind(this)}/>
                             <label htmlFor="doacao-anonima">Doação anônima</label>
                         </div>
                         <button className="botao btn btn-primary " type="submit" onSubmit="">
