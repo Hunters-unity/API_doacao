@@ -18,6 +18,11 @@ const ResponsavelSchema = new mongoose.Schema({
         type: Number,
         require: true,
     },
+    perfil:{
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Perfil',
+        require: true
+    },
     aluno: {
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Aluno',

@@ -3,9 +3,9 @@ const Escola = require('../Models/Escola')
 const EscolaController = {
     cadastrar: (req, res) => {
         try{
-            if(req.body !== undefined){
-                const {nome, cep, endereco, estado, cidade, bairro, tipo, telefone, logo, data} = req.body;
-
+            const {nome, cep, endereco, estado, cidade, bairro, tipo, telefone, logo, data} = req.body;
+            if(nome !== undefined && endereco !== undefined && bairro !== undefined && cep && undefined){
+                
                 Escola.create({nome, cep, endereco, estado, cidade, bairro, tipo, telefone, logo, data})
                     .then( escola => {
                        return res.status(201).send({escola})

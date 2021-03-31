@@ -3,8 +3,8 @@ const Aluno = require('../Models/Aluno')
 const AlunoController = {
     cadastrar: (req, res) => {
         try{
-            if(req.body !== undefined){
-                const {nome, ano_letivo, escola, estado, data} = req.body;
+            const {nome, ano_letivo, escola, estado, data} = req.body;
+            if(nome !== undefined, escola !== undefined){                
 
                 Escola.create({nome, ano_letivo, escola, estado, data})
                     .then( escola => {
