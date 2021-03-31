@@ -23,8 +23,8 @@ const ResponsavelSchema = new mongoose.Schema({
         ref: 'Perfil',
         require: true
     },
-    aluno: {
-        type: mongoose.Schema.Types.ObjectId, 
+    alunos: {
+        type: [mongoose.Schema.Types.ObjectId], 
         ref: 'Aluno',
         require: true
     },

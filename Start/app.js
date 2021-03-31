@@ -8,6 +8,7 @@ app.use(express.urlencoded({ extended: false}))
 require('../App/Routes/doacao')(app);
 require('../App/Routes/escolas')(app);
 require('../App/Routes/perfil')(app);
+require('../App/Routes/responsavel')(app);
 // require('../App/Routes/alunos')(app);
 
 
