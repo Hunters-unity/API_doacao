@@ -11,11 +11,11 @@ const ResponsavelSchema = new mongoose.Schema({
         require: true,
     },
     cpf: {
-        type: Number,
+        type: String,
         require: true,
     },
     telefone: {
-        type: Number,
+        type: String,
         require: true,
     },
     perfil:{

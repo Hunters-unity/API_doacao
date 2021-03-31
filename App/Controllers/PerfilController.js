@@ -34,7 +34,7 @@ const PerfilController = {
                 const perfil = await Perfil.findOne({email: email, senha: senha});
 
                 if(perfil !== null){
-                    return res.status(200).send({existe: true})
+                    return res.status(200).send({existe: true, id: perfil.id})
                 }else{
                     return res.status(200).send({existe: false})
                 }
