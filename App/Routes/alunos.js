@@ -7,4 +7,4 @@ router.post('/cadastrar', AlunoController.cadastrar);
 // router.delete('/excluir/:id', AlunoController.excluir);
 
 
-module.exports = router;
+module.exports =  app => app.use('/aluno', router);
