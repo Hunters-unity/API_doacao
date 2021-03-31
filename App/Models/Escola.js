@@ -11,7 +11,7 @@ const EscolaSchema = new mongoose.Schema({
         require: true,
     },
     endereco: {
-        type: Number,
+        type: String,
         unique: true,
         require: true,
     },
