@@ -1,0 +1,16 @@
+* {
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	background-color: #F6F6F6;
+}
+
+.avatar-aluno {
+	width: 10em;
+}
+
+.titulo-homepage {
+	font-size: 2em;
+	font-weight: bold;
+}
