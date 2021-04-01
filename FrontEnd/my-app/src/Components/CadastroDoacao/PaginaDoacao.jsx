@@ -27,9 +27,9 @@ class PaginaDoacao extends Component {
     handlerAddItem(evento) {
         var doar = evento.target.checked;
         if (doar) {
-            this.listaDoados.push("item")
+            this.listaDoados.push(evento.target.name)
         } else {
-            this.removeItemOnce(this.listaDoados, "item")
+            this.removeItemOnce(this.listaDoados, evento.target.name)
         }
         this.setState({
             doados: this.listaDoados
@@ -76,7 +76,7 @@ class PaginaDoacao extends Component {
                                         <li key={index}>
                                             <div>
                                                 <label htmlFor="check" id="item-a-doar">{categoria}</label>
-                                                <input type="checkbox" id="check-doacao" onChange={this.handlerAddItem.bind(this)} />
+                                                <input type="checkbox" id="check-doacao" name={categoria} onChange={this.handlerAddItem.bind(this)} />
                                             </div>
                                         </li>
                                     )
