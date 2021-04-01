@@ -1,43 +1,54 @@
-import React, { useState } from 'react'
-import "./form-style.css"
+import React from 'react'
+import "./Style.css"
 import axios from 'axios'
+import { Component } from 'react'
 
-function FormCadastro(){
-    const [form,setForm] = useState({nome_responsavel:"",email:"",senha:""})
+class FormCadastro extends Component {
+    constructor() {
+        super();
+        this.state = {
+            nome_responsavel: "",
+            email: "",
+            senha: ""
+        }
+    }
 
 
-    return(
-        <div className="moldura">
-		<header >
-			<h1>Faça seu cadastro!</h1>
-			<p>É simples, rápido e GRÁTIS!</p>
-        </header>
-            <div className="container">
-                <h2 className="titulo-formulario">Informações de Acesso</h2>
-                    <form onSubmit={(event) =>{ event.preventDefault();
-                        axios.post('http://localhost:3001/perfil/cadastrar', form);
-                        console.log(form)}}>
+    render() {
+        return (
+            <div className="moldura">
+                <header >
+                    <h1>Faça seu cadastro!</h1>
+                    <p>É simples, rápido e GRÁTIS!</p>
+                </header>
+                <div className="container">
+                    <h2 className="titulo-formulario">Informações de Acesso</h2>
+                    <form onSubmit={(event) => {
+                        console.log(this.state)
+                        //axios.post('http://localhost:3001/perfil/cadastrar', this.state);
+                        event.preventDefault()
+                    }}>
                         <fieldset className="informacoes-responsavel">
                             <div className="form-row">
                                 <label htmlFor="responsavel-aluno"><strong>Nome do responsável</strong></label>
-                                <input className="form-control" type="text" name="responsavel-aluno" id="responsavel-aluno" autoFocus required value={form.nome_responsavel} onChange={(event)=> {setForm({...form, nome_responsavel: event.target.value})}}/>
+                                <input className="form-control" type="text" name="responsavel-aluno" id="responsavel-aluno" autoFocus value={this.state.nome_responsavel} required onChange={async (evento) => await this.setState({ nome_responsavel: evento.target.value })} />
                             </div>
                             <div className="form-row">
                                 <label htmlFor="email"><strong>E-mail:</strong></label>
-                                <input className="form-control" type="email" id="email" value={form.email} onChange={(event)=> {
-                                    setForm({...form,email: event.target.value})}} required/>
+                                <input className="form-control" type="email" id="email" onChange={async (evento) => await this.setState({ email: evento.target.value })} required />
                             </div>
                             <div className="form-row">
                                 <label htmlFor="senha"><b>Senha:</b></label>
-                                <input className="form-control" type="password" id="senha" value={form.senha} onChange={(event)=> {setForm({...form,senha: event.target.value})}} required=""/>
+                                <input className="form-control" type="password" id="senha" onChange={async (evento) => await this.setState({ senha: evento.target.value })} required="" />
                             </div>
 
                         </fieldset>
-                        <a href="cadastro-responsavel.html"><button className="botao btn btn-primary" type="submit">Cadastrar</button></a> 
+                        <a href="cadastro-responsavel.html"><button className="botao btn btn-primary" type="submit">Cadastrar</button></a>
                     </form>
+                </div>
             </div>
-	    </div>
-    )
-}
+        )
 
+    }
+}
 export default FormCadastro;
