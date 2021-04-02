@@ -4,11 +4,13 @@ import PaginaDoacao from './Components/Doacao/PaginaDoacao'
 import CadastroEscola from './Components/Escola/CadastroEscola'
 import FormCadastro from './Components/CadastroResponsavel/CadastroPerfil'
 import Home from './Components/Home/Home'
+import Nav from './Components/Nav/Nav'
 
 
-function Nav() {
+function Rotas() {
     return (
         <Router>
+            <Nav/>
             <Switch>
                 <Route path="/CadastroEscola" component={CadastroEscola}/>
                 <Route path="/CadastroResponsavel" component={FormCadastro}/>
@@ -20,4 +22,4 @@ function Nav() {
     )
 }
 
-export default Nav;
+export default Rotas;

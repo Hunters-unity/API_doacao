@@ -13,7 +13,11 @@ body {
     box-shadow: 1px 1px 25px lightgray;
 
 }
-
+.bottom-background{
+	background-color: rgb(241, 241, 241);
+    display: flex;
+    min-height: 82vh;
+}
 header{
 	background-color: lightblue;
 	border-top-left-radius: 10px;

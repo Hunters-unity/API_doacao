@@ -42,3 +42,42 @@ label {
 .formulario-doacao{
 	margin: 0 22%;
 }
+
+.avatar{
+	min-width: 300px;
+	display: flex;
+	min-height: 30vmin;
+	width: 30vmin;
+	border-radius: 15px;
+}
+
+.col{
+	border-radius: 15px;
+	position: relative;
+	vertical-align: middle;
+	margin: auto;
+	align-items:flex-end;
+}
+
+.card.mb-7{
+	border-radius: 15px;
+}
+
+.botao-doacao{
+	position: relative;
+	left: 50%;
+	top: 50%;
+}
+
+.row{
+	padding-bottom: 1vh;
+	padding-top: 1vh;
+}
+
+.materiais-doados{
+	padding-left: 30%;
+}
+
+.container{
+	margin: 3vh auto;
+}
