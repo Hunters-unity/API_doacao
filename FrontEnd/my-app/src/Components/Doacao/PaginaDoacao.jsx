@@ -49,7 +49,7 @@ class PaginaDoacao extends Component {
     render() {
         return (
             <div>
-                <div className="moldura">
+                
                     <header>
                         <h1>Faça sua Doação!</h1>
                     </header>
@@ -119,7 +119,7 @@ class PaginaDoacao extends Component {
                         </button>
 
                     </form>
-                </div>
+                
 
             </div>
         )

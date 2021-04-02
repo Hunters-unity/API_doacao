@@ -1,18 +1,26 @@
+* {
+	font-family: 'Poppins', sans-serif;
+}
+
 body {
-	background-color: ghostwhite;
-
+	background-color: #F6F6F6;
 }
 
-.moldura {
-	background-color: aliceblue;
-	width: 97%;
-	margin: 1.5em auto;
-	border: 2px solid lightblue; 
-	border-radius: 10px;
-	 -webkit-box-shadow: 1px 1px 25px lightgray;
-    box-shadow: 1px 1px 25px lightgray;
-
+.avatar-aluno {
+	width: 10em;
 }
+
+.titulo-homepage {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.meu-container-cards {
+	height: 400px;
+	overflow: auto;
+}
+
+/*ESTILO FORMULÁRIOS*/
 
 header{
 	background-color: lightblue;
