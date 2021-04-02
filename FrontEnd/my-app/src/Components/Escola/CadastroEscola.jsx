@@ -9,6 +9,7 @@ class CadastroEscola extends Component {
             nome: "", cep: "", endereco: "", estado: "", numero: "",
             cidade: "", bairro: "", tipo: "Estadual", telefone: ""
         }
+
     }
 
     mascaraTelefone(event) {
@@ -104,7 +105,7 @@ class CadastroEscola extends Component {
                     <h5 className="subtitulo-formulario">Passo 2 - 4</h5>
                     <form onSubmit={(event) => {
                         console.log(this.state)
-                        axios.post('http://localhost:3001/escolas/cadastrar', this.state).then(async response => console.log(response.erro));
+                        axios.post('http://localhost:3001/escolas/cadastrar', this.state).then((response) => console.log(response)).catch((erro) => console.log(erro))
                         event.preventDefault()
                     }}>
                         <fieldset className="informacoes-escola">
@@ -138,7 +139,7 @@ class CadastroEscola extends Component {
                             <div className="form-row">
                                 <div className="col-sm">
                                     <label htmlFor="cep"><b>CEP</b></label>
-                                    <input className="form-control" type="number" name="cep" id="cep" onBlur={this.pesquisaCep.bind(this)} onKeyPress={this.mascaraCep.bind(this)} maxLength="9" required />
+                                    <input className="form-control" type="text" name="cep" id="cep" onBlur={this.pesquisaCep.bind(this)} onKeyPress={this.mascaraCep.bind(this)} maxLength="9" required />
                                 </div>
 
                                 <div className="col-sm">
@@ -181,11 +182,11 @@ class CadastroEscola extends Component {
                             <div className="form-row">
                                 <div className="col-sm">
                                     <label htmlFor="telefone"><b>Telefone: </b></label>
-                                    <input className="form-control" type="number" id="telefone" onKeyPress={this.mascaraTelefone.bind(this)} maxLength="13" />
+                                    <input className="form-control" type="text" id="telefone" onKeyPress={this.mascaraTelefone.bind(this)} maxLength="13" />
                                 </div>
                                 <div className="col-sm">
                                     <label htmlFor="cel"><b>WhatsApp:</b></label>
-                                    <input className="form-control" type="number" id="cel" onKeyPress={this.mascaraCel.bind(this)} maxLength="14" />
+                                    <input className="form-control" type="text" id="cel" onKeyPress={this.mascaraCel.bind(this)} maxLength="14" />
                                 </div>
                             </div>
                             <div className="form-row float-right">

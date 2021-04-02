@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import CadastroAluno from './Components/CadastroAluno/CadastroAluno'
-import PaginaDoacao from './Components/CadastroDoacao/PaginaDoacao'
-import CadastroEscola from './Components/CadastroEscola/CadastroEscola'
+import CadastroAluno from './Components/Aluno/CadastroAluno'
+import PaginaDoacao from './Components/Doacao/PaginaDoacao'
+import CadastroEscola from './Components/Escola/CadastroEscola'
 import FormCadastro from './Components/CadastroResponsavel/CadastroPerfil'
-import LandingPage from './Components/LandingPage/LandingPage'
+import Home from './Components/Home/Home'
 
 
 function Nav() {
@@ -14,7 +14,7 @@ function Nav() {
                 <Route path="/CadastroResponsavel" component={FormCadastro}/>
                 <Route path="/CadastroAluno" component={CadastroAluno}/>
                 <Route path="/Doacao" component={PaginaDoacao}/>
-                <Route path="/" exact component={LandingPage} />
+                <Route path="/" exact component={Home} />
             </Switch>
         </Router>
     )

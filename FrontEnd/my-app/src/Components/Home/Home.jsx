@@ -5,6 +5,7 @@ import { Component } from 'react'
 import imagemEscola from './corredor-escola.jpg'
 import avatar28 from './avatar/Avatar-26.png'
 import avatar26 from './avatar/Avatar-28.png'
+import { Link } from 'react-router-dom'
 
 class LandingPage extends Component {
     render() {
@@ -17,25 +18,27 @@ class LandingPage extends Component {
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span className="navbar-toggler-icon"></span> </button>
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <ul className="navbar-nav">
-                                <li className="nav-item active">
-                                    <a className="nav-link" href="1">Inicio<span className="sr-only">(current)</span></a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="1">Listas</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="1">Escolas</a>
-                                </li>
+                                <Link to='/'>
+                                    <li className="nav-item active">
+                                        <a className="nav-link">Inicio<span className="sr-only">(current)</span></a>
+                                    </li>
+                                </Link>
+                                <Link to='/cadastroEscola'>
+                                    <li className="nav-item">
+                                        <a className="nav-link">Escolas</a>
+                                    </li>
+                                </Link>
                             </ul>
                             <div className="">
-                                <a className=" nav-item btn btn-outline-warning">Cadastrar</a>
+                                <Link to='/cadastroResponsavel'>
+                                    <a className=" nav-item btn btn-outline-warning">Cadastrar</a>
+                                </Link>
                                 <a className="nav-item btn btn-light">Login</a>
                             </div>
-
                         </div>
                     </nav>
                     <form className="form-inline">
-                        <input className="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search" />
+                        <input className="form-control mr-sm-2" type="search" placeholder="Pesquisar escolas" aria-label="Search" />
                         <button className="btn btn-primary my-2 my-sm-0" type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-search" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -73,7 +76,7 @@ class LandingPage extends Component {
                                     </form>
                                 </div>
                                 <div className="col-sm-2">
-                                    <a href="doar"><button className="btn btn-warning">Doar Agora</button></a>
+                                    <a><button className="btn btn-warning">Doar Agora</button></a>
                                 </div>
 
                             </div>
@@ -102,7 +105,7 @@ class LandingPage extends Component {
                                     </form>
                                 </div>
                                 <div className="col-sm-2">
-                                    <a href="doar"><button className="btn btn-warning">Doar Agora</button></a>
+                                    <a><button className="btn btn-warning">Doar Agora</button></a>
                                 </div>
 
                             </div>
@@ -123,7 +126,7 @@ class LandingPage extends Component {
                                             <div className="progress-bar bg-success" role="progressbar" aria-valuenow={25} aria-valuemin={0} aria-valuemax={100}>
                                             </div>
                                         </div>
-                                        <a href="1" className="btn btn-warning">Ver Perfil</a>
+                                        <a className="btn btn-warning">Ver Perfil</a>
                                     </div>
                                 </div>
                             </div>
@@ -138,7 +141,7 @@ class LandingPage extends Component {
                                             <div className="progress-bar bg-success" role="progressbar" aria-valuenow={25} aria-valuemin={0} aria-valuemax={100}>
                                             </div>
                                         </div>
-                                        <a href="1" className="btn btn-warning">Ver Perfil</a>
+                                        <a className="btn btn-warning">Ver Perfil</a>
                                     </div>
                                 </div>
                             </div>
@@ -153,7 +156,7 @@ class LandingPage extends Component {
                                             <div className="progress-bar bg-success" role="progressbar" aria-valuenow={25} aria-valuemin={0} aria-valuemax={100}>
                                             </div>
                                         </div>
-                                        <a href="1" className="btn btn-warning">Ver Perfil</a>
+                                        <a className="btn btn-warning">Ver Perfil</a>
                                     </div>
                                 </div>
                             </div>
