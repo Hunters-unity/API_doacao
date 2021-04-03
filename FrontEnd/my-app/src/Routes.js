@@ -5,13 +5,13 @@ import CadastroEscola from './Components/Escola/CadastroEscola'
 import FormCadastro from './Components/CadastroResponsavel/CadastroPerfil'
 import Landing from './Components/LandingPage/LandingPage'
 import Home from './Components/Home/Home'
-import Nav from './Components/Nav/Nav'
+import Navegacao from './Components/Nav/Nav'
 
 
 function Rotas() {
     return (
         <Router>
-            <Nav/>
+            <Navegacao/>
             <Switch>
                 <Route path="/CadastroEscola" component={CadastroEscola}/>
                 <Route path="/CadastroResponsavel" component={FormCadastro}/>

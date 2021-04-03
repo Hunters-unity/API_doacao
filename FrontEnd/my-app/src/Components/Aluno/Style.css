@@ -59,7 +59,9 @@ label {
 	vertical-align: middle;
  	margin-top: auto;
 	align-items: middle;
-	min-width: 130px;
+	min-width: 220px;
+	padding-top: 2rem;
+
 }
 
 .col.cartaoaluno.md{
@@ -79,11 +81,13 @@ label {
 }
 .container.cartaoaluno{
 	border-radius: 15px;
-	margin: 2vh 2vw;
-	padding: 2%;
+	margin-top: 2vh;
+	margin-left: 2vw;
+	margin-right: 2vw;
+	padding: 0 2% 2%;
 	min-width: 80vw;
 	font-weight: 400;
-	max-width: 96vw;
+	max-width: 94vw;
 	text-align: left;
 	font-size: 16px;
 	background-color: white;
@@ -109,9 +113,8 @@ label {
 	border-color: unset;
 	color: white;
 }
-.row{
-	padding-bottom: 1vh;
-	padding-top: 1vh;
+.row.cartaoaluno{
+	padding: 0;
 }
 
 .materiais-doados{
