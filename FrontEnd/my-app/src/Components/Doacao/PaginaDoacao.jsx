@@ -58,7 +58,7 @@ class PaginaDoacao extends Component {
                         <div className="card mb-3">
                             <div className="row no-gutters">
                                 <div className="col-sm-5">
-                                    <img src={avatar} alt="ilustração de menina ruiva" />
+                                    <img src={avatar} alt="ilustração de menina" />
                                 </div>
                                 <div className="col-sm-7">
                                     <div className="card-body text-center">

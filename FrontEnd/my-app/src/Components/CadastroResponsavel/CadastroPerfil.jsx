@@ -16,7 +16,8 @@ class FormCadastro extends Component {
 
     render() {
         return (
-            <div className="moldura">
+            <div>
+            
                 <header >
                     <h1>Faça seu cadastro!</h1>
                     <p>É simples, rápido e GRÁTIS!</p>
@@ -46,6 +47,7 @@ class FormCadastro extends Component {
                         <a href="cadastro-responsavel.html"><button className="botao btn btn-primary" type="submit">Cadastrar</button></a>
                     </form>
                 </div>
+            
             </div>
         )
 

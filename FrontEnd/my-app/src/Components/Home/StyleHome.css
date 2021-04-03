@@ -1,18 +1,12 @@
+
+
 body {
-	background-color: ghostwhite;
+	background-color: #f6f6f6;
+	font-family: 'Poppins', sans-serif;
 
 }
 
-.moldura {
-	background-color: aliceblue;
-	width: 97%;
-	margin: 1.5em auto;
-	border: 2px solid lightblue; 
-	border-radius: 10px;
-	 -webkit-box-shadow: 1px 1px 25px lightgray;
-    box-shadow: 1px 1px 25px lightgray;
 
-}
 .bottom-background{
 	background-color: rgb(241, 241, 241);
     display: flex;

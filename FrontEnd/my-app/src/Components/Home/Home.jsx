@@ -1,17 +1,15 @@
 import React from 'react'
-import "./Style.css"
+import "./StyleHome.css"
 import axios from 'axios'
 import { Component } from 'react'
 import imagemEscola from './corredor-escola.jpg'
 import { Link } from 'react-router-dom'
 import CardAluno from '../Aluno/CardAluno'
 
-class LandingPage extends Component {
+class LandingPage extends Component { //MARCOS, ARRUMAR O NOME PARA: Home
     render() {
         return (
             <div className='botton-background'>
-
-
                 <main>
                     <div className="container mt-5">
                         <p className="titulo-homepage">Listas Recentes</p>
@@ -80,4 +78,4 @@ class LandingPage extends Component {
     }
 }
 
-export default LandingPage;
+export default LandingPage; //ARRUMAR O NOME PARA: Home
