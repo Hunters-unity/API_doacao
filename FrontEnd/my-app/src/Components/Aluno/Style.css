@@ -13,7 +13,9 @@ body {
     box-shadow: 1px 1px 25px lightgray;
 
 }
-
+.checkitem{
+	margin-right: 1vw;
+}
 header{
 	background-color: lightblue;
 	border-top-left-radius: 10px;
@@ -55,19 +57,45 @@ label {
 	border-radius: 15px;
 	position: relative;
 	vertical-align: middle;
-	margin: auto;
-	align-items:flex-end;
+ 	margin-top: auto;
+	align-items: middle;
+	min-width: 130px;
 }
 
-.card.mb-7{
+.col.md.cartaoaluno{
+	margin-bottom: auto;
+}
+.card-title.cartaoaluno{
+	color: #5503A6;
+	margin-top: 1rem;
+}
+.col.titulo{
+	margin-bottom: auto;
+}
+.container.card{
 	border-radius: 15px;
+	margin: 2vh 2vw;
+	padding: 2%;
+	min-width: 80vw;
+	font-weight: 350;
+	max-width: 96vw;
+	text-align: left;
 }
 
+.col.img{
+	min-width: 130px;
+}
+.col.botao{
+	display: flex;
+	justify-content: flex-end;
+	align-self: flex-end;
+}
 .botao-doacao{
 	position: relative;
-	left: 50%;
-	top: 50%;
+
+	max-width: 118;
 }
+
 
 .row{
 	padding-bottom: 1vh;
@@ -75,9 +103,9 @@ label {
 }
 
 .materiais-doados{
-	padding-left: 30%;
+	padding-left: 10%;
 }
 
 .container{
-	margin: 3vh auto;
+	font-family: 'Poppins';
 }
