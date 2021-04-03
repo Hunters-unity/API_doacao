@@ -53,7 +53,7 @@ label {
 	border-radius: 15px;
 }
 
-.col{
+.col.cartaoaluno{
 	border-radius: 15px;
 	position: relative;
 	vertical-align: middle;
@@ -62,33 +62,41 @@ label {
 	min-width: 130px;
 }
 
-.col.md.cartaoaluno{
+.col.cartaoaluno.md{
 	margin-bottom: auto;
+	border-radius: 0px;
+	border-left: 2px solid rgb(240, 248, 245);
 }
 .card-title.cartaoaluno{
 	color: #5503A6;
 	margin-top: 1rem;
 }
-.col.titulo{
+.card-text.cartaoaluno{
+	color: #2B2B2B, 100%;
+}
+.col.titulo.cartaoaluno{
 	margin-bottom: auto;
 }
-.container.card{
+.container.cartaoaluno{
 	border-radius: 15px;
 	margin: 2vh 2vw;
 	padding: 2%;
 	min-width: 80vw;
-	font-weight: 350;
+	font-weight: 400;
 	max-width: 96vw;
 	text-align: left;
+	font-size: 16px;
+	background-color: white;
 }
 
-.col.img{
+.col.img.cartaoaluno{
 	min-width: 130px;
 }
-.col.botao{
+.col.cartaoaluno.botao{
 	display: flex;
 	justify-content: flex-end;
 	align-self: flex-end;
+	margin-top: 2vh;
 }
 .botao-doacao{
 	position: relative;
@@ -96,7 +104,11 @@ label {
 	max-width: 118;
 }
 
-
+.btn.btn-warning{
+	background-color: #F27141;
+	border-color: unset;
+	color: white;
+}
 .row{
 	padding-bottom: 1vh;
 	padding-top: 1vh;

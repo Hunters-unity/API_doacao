@@ -15,7 +15,7 @@ const itemDoacaoSchema = new mongoose.Schema({
         require: true,
     },
     doado: {
-        type: String,
+        type: Boolean,
         require: true,
         default: false
     },
