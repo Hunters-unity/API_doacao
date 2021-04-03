@@ -42,3 +42,36 @@ label {
 .formulario-doacao{
 	margin: 0 22%;
 }
+
+.container.cartaoescola{
+	min-width: 300px;
+	max-width: 90vw;
+	min-height: 30vh;
+	background-color: white;
+	border-radius: 15px;
+	padding: 1rem;
+	display: grid;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.col.cartaoescola.botao{
+	display: flex;
+	margin-top: auto;
+	margin-bottom: auto;
+	justify-content: flex-end;
+	margin-right: 3vw;
+}
+.col.cartaoescola.titulo{
+	margin-top: auto;
+	margin-bottom: auto;
+	padding-left: 5vw;
+}
+.col.img.cartaoescola{
+	min-width: 240px;
+	min-height: 180px;
+	padding: 0px;
+}
+.col.cartaoescola{
+	padding-top: 2vh;
+	min-width: 240px;
+}

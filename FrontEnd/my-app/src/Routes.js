@@ -7,6 +7,7 @@ import Landing from './Components/LandingPage/LandingPage'
 import Home from './Components/Home/Home'
 import Navegacao from './Components/Nav/Nav'
 import LoginResponsavel from './Components/CadastroResponsavel/LoginResposavel'
+import CardEscola from './Components/Escola/CardEscola'
 
 
 function Rotas() {
@@ -21,6 +22,7 @@ function Rotas() {
                 <Route path="/" exact component={Home} />
                 <Route path="/Landing" component={Landing}/>
                 <Route path="/Login" component={LoginResponsavel}/>
+                <Route path="/Escolas" component={CardEscola}/>
             </Switch>
         </Router>
     )

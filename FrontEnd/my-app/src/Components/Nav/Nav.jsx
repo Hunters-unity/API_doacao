@@ -18,7 +18,7 @@ class Navegacao extends Component { //ARRUMAR NOME DA CLASSE : Nav ou Navbar
                         <Link to='/'>
                             <li>Início</li>
                         </Link>
-                        <Link to='/'>
+                        <Link to='/Escolas'>
                             <li>Escolas</li>
                         </Link>
                         <UncontrolledDropdown nav inNavbar>
