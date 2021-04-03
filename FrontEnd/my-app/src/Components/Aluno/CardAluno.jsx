@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./Style.css";
 import axios from 'axios'
 import avatar from './avatar-crianca.png'
+import userIcon from '../Imagens/userIcon.png'
+import schoolIcon from '../Imagens/schoolIcon.png'
 
 class CardAluno extends Component {
     constructor() {
@@ -77,9 +79,15 @@ class CardAluno extends Component {
                         <img src={avatar} alt="ilustração - avatar aluno" className="col img cartaoaluno" />
                     </div>
                     <div className="col cartaoaluno titulo">
-                        <h5 className="card-title cartaoaluno" id="responsável">Responsável:</h5>
+                        <div className="text-icon">
+                            <img src={userIcon} className="text-icon icon" />
+                            <h5 className="card-title cartaoaluno" id="responsável">Responsável:</h5>
+                        </div>
                         <p className="card-text cartaoaluno" id="nome-responsável">Sônia Souza</p>
-                        <h5 className="card-title cartaoaluno" id="escola">Escola:</h5>
+                        <div className="text-icon">
+                            <img src={schoolIcon} className="text-icon icon" />
+                            <h5 className="card-title cartaoaluno" id="escola">Escola:</h5>
+                        </div>
                         <p className="card-text cartaoaluno" id="nome-escola">Escola Estadual Djalma</p>
 
                     </div>

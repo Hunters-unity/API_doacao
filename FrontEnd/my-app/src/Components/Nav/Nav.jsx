@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import './StyleNav.css'
 import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, Row, Col, } from 'reactstrap'
-  
 
-class Example extends Component { //ARRUMAR NOME DA CLASSE : Nav ou Navbar
+
+class Navegacao extends Component { //ARRUMAR NOME DA CLASSE : Nav ou Navbar
     render() {
         return (
             <div>
-             <nav>
+                <nav>
                     <div className='logo'>
                         <h3>EDUAÇÃO</h3>
                     </div>
@@ -39,7 +39,9 @@ class Example extends Component { //ARRUMAR NOME DA CLASSE : Nav ou Navbar
                             </DropdownMenu>
                         </UncontrolledDropdown>
                     </ul>
-                    <p>login</p>
+                    <Link to='/Login'>
+                        <p>login</p>
+                    </Link>
                 </nav>
                 <div>
                     <area class="top-area" alt='top-gradient' />
@@ -49,4 +51,4 @@ class Example extends Component { //ARRUMAR NOME DA CLASSE : Nav ou Navbar
     }
 }
 
-export default Example; //ARRUMAR NOME
+export default Navegacao; //ARRUMAR NOME

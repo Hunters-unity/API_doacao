@@ -6,6 +6,7 @@ import FormCadastro from './Components/CadastroResponsavel/CadastroPerfil'
 import Landing from './Components/LandingPage/LandingPage'
 import Home from './Components/Home/Home'
 import Navegacao from './Components/Nav/Nav'
+import LoginResponsavel from './Components/CadastroResponsavel/LoginResposavel'
 
 
 function Rotas() {
@@ -19,6 +20,7 @@ function Rotas() {
                 <Route path="/Doacao" component={PaginaDoacao}/>
                 <Route path="/" exact component={Home} />
                 <Route path="/Landing" component={Landing}/>
+                <Route path="/Login" component={LoginResponsavel}/>
             </Switch>
         </Router>
     )

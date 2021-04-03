@@ -42,3 +42,18 @@ label {
 .formulario-doacao{
 	margin: 0 22%;
 }
+.btn.btn-primary{
+	background-color: #F27141;
+	border-color: unset;
+	color: white;
+	margin-top: 3vh;
+ 	margin-left: auto;
+
+}
+.form-login{
+	display: grid;
+	width: 50%;
+	min-width: 250px;
+	margin-left: auto;
+	margin-right: auto;
+}
