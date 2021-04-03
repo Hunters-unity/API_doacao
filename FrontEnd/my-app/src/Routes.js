@@ -3,6 +3,7 @@ import CadastroAluno from './Components/Aluno/CadastroAluno'
 import PaginaDoacao from './Components/Doacao/PaginaDoacao'
 import CadastroEscola from './Components/Escola/CadastroEscola'
 import FormCadastro from './Components/CadastroResponsavel/CadastroPerfil'
+import Landing from './Components/LandingPage/LandingPage'
 import Home from './Components/Home/Home'
 import Nav from './Components/Nav/Nav'
 
@@ -17,6 +18,7 @@ function Rotas() {
                 <Route path="/CadastroAluno" component={CadastroAluno}/>
                 <Route path="/Doacao" component={PaginaDoacao}/>
                 <Route path="/" exact component={Home} />
+                <Route path="/Landing" component={Landing}/>
             </Switch>
         </Router>
     )
