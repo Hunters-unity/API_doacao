@@ -1,24 +1,43 @@
 body {
     margin: 2em;
+    background-color: #f6f6f6;
+	font-family: 'Poppins', sans-serif;
 }
 
 .titulo-1 {
     font-size: 3em;
     font-weight: bold;
+    margin: 1em;
 }
 .titulo-2 {
     font-size: 2.5em;
     font-weight: bold;
+    margin: 1em;
 }
 .titulo-3{
     font-size: 2em;
     font-weight: bold;
+    margin: 1em;
 }
 .titulo-4 {
     font-size: 1.5em;
+    margin-bottom: 1em;
 }
 .titulo-5{
     font-size: 1.2em;
+}
+
+/*NAVBAR*/
+.botao {
+    border-radius: 5px;
+    padding: 1em;
+}
+.botao-cadastre-se {
+    border: 1px solid;
+}
+.botao-login {
+    color: #f27141;
+    border: 1px solid #f27141;
 }
 
 /*LANDING PAGE*/
@@ -28,16 +47,19 @@ body {
 .banner-escola-landing {
     background-color: #5503a6;
     color: #ffffff;
-    height: 40vh;
+    padding: 1em;
+}
+
+/*HOME PAGE*/
+.secao-home {
+    margin: 5em 0;
 }
 
 
 
-
-
-/*CSS CARDS ALUNOS*/
+/*CARDS ALUNOS*/
 .meu-container-cards {
-	height: 40vh;
+	height: 70vh;
 	overflow: auto;
 }
 
@@ -49,4 +71,11 @@ height: 5em;
     background-color: #2e186a;
     color: #ffffff;
     height: 3em;
+}
+
+/*RESPONSIVIDADE*/
+@media (max-width: 576px) {
+    .meu-container-cards {
+        height: 40vh;
+    }
 }

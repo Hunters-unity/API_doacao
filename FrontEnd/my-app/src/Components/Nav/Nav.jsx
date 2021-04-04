@@ -1,7 +1,3 @@
-//import React, { Component } from 'react';
-
-//import './StyleNav.css'
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import {
@@ -20,6 +16,7 @@ import {
 } from 'reactstrap';
 import axios from 'axios'
 import logoEduacao from '../Imagens/logo-eduacao.png';
+import '../../css/AppStyle.css';
 
 
 function Navegacao (props) {
@@ -60,7 +57,8 @@ function Navegacao (props) {
                 </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
-          <NavbarText><Link to='/Login'>Login</Link></NavbarText>
+          
+          <NavbarText className="botao botao-login"><Link to='/Login'>Login</Link></NavbarText>
         </Collapse>
       </Navbar>
     </div>

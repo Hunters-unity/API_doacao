@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Style.css";
+import "./StyleDoacao.css";
 import avatar from "./avatar-crianca.png";
 
 

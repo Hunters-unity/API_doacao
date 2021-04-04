@@ -1,25 +1,30 @@
 import React from 'react'
-import "./StyleHome.css"
+import '../../css/AppStyle.css'
 import axios from 'axios'
 import { Component } from 'react'
-import imagemEscola from './corredor-escola.jpg'
+import imagemEscola from '../Imagens/corredor-escola.jpg'
 import { Link } from 'react-router-dom'
 import CardAluno from '../Aluno/CardAluno'
 
 class Home extends Component { 
     render() {
         return (
-            <div className='botton-background'>
+            <div>
                 <main>
-                    <div className="container mt-5">
-                        <p className="titulo-homepage">Listas Recentes</p>
-                        <p>Confira as listas de material recém adicionados</p>
-                    </div>
-                    <CardAluno/>
-                    <CardAluno/>
+                    <section className="secao-home">
+                        <div className="container mt-5">
+                            <h2 className="titulo-2">Listas Recentes</h2>
+                            <h4 className="titulo-4">Confira as listas de material recém adicionados</h4>
+                        </div>
+                        <div className="meu-container-cards">
+                            <CardAluno />
+                            <CardAluno />
+                        </div>
+                    </section>
+                    <section className="secao-home">
                     <div className="container">
-                        <p className="titulo-homepage">Escolas Recentes</p>
-                        <p>Confira algumas escolas recém adicionadas</p>
+                        <h2 className="titulo-2">Escolas Recentes</h2>
+                        <h4 className="titulo-4">Confira algumas escolas recém adicionadas</h4>
                         <div className="row">
                             <div className="col-md">
                                 <div className="card">
@@ -69,6 +74,8 @@ class Home extends Component {
 
                         </div>
                     </div>
+                    </section>
+                    
 
 
 
