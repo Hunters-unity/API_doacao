@@ -9,7 +9,7 @@ import CardAluno from '../Aluno/CardAluno'
 class Home extends Component { 
     render() {
         return (
-            <div>
+            <div className="corpo">
                 <main>
                     <section className="secao-home">
                         <div className="container mt-5">

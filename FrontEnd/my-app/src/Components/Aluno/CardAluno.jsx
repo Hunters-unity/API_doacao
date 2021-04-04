@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Style.css";
+import "../../css/AppStyle.css";
 import axios from 'axios'
 import avatar from '../Imagens/avatar/Avatar-24.png'
 import userIcon from '../Imagens/userIcon.png'

@@ -16,7 +16,7 @@ class FormCadastro extends Component {
 
     render() {
         return (
-            <div>
+            <div className="corpo">
             
                 <header >
                     <h1>Faça seu cadastro!</h1>

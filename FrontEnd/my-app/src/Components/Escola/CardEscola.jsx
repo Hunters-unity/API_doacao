@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./Style.css";
 import axios from 'axios'
 import avatar from '../Imagens/corredor-escola.jpg'
-import userIcon from '../Imagens/userIcon.png'
 import schoolIcon from '../Imagens/schoolIcon.png'
 import { Link } from "react-router-dom";
 
@@ -11,8 +10,9 @@ class CardEscola extends Component {
         super();
         this.state = {
             avatar: "",
-            estado: "",
-            cidade: "",
+            estado: "MG",
+            cidade: "São João del Rei",
+            nome: "Escola de Educação Básica e Profissional Dona Sinhá Neves",
             quantidadeAlunos: "",
             id: ""
         }
@@ -30,48 +30,44 @@ class CardEscola extends Component {
             listaMateriais: { nome: nomeTemp, id: idTemp }
         })
     }
-    /*async componentDidMount() {
-        if (this.listaDoados.id[0] === undefined) {
-            axios.patch('http://localhost:3001/doacao/60689ddaaa112bc192142b3c').then(response => { //falta rota de busca de dado do aluno
-                response.data.doacao.itens.map(element => {
-                    axios.put('http://localhost:3001/doacao/' + element).then(response => {
-                        if (response.data.doacao.doado === false) {
-                            this.handlerCriaLista(response.data.doacao)
-                        }
-                    }
-                    )
-                })
-            })
-        }
-    }*/
+    async componentDidMount() {
+        axios.get('http://localhost:3001/escolas/listar/6063f3ba8b88e3d38e1b9b57').then(response => {
+            this.setState({ estado: response.data.escola.estado, cidade: response.data.escola.cidade, nome: response.data.escola.nome })
+        })
+    }
 
 
     render() {
         return (
-            <div className="container cartaoescola">
-                <div className="row cartaoescola">
-                    <div className="col cartaoescola">
-                        <img src={avatar} alt="ilustração - avatar escola" className="col img cartaoescola" />
-                    </div>
-                    <div className="col cartaoescola titulo">
-                        <div className="text-icon">
-                            <img src={schoolIcon} className="text-icon icon" />
-                            <h5 className="card-title cartaoescola" id="responsável">Escola:</h5>
+            <div className="corpo">
+                <div className="container cartaoescola">
+                    <div className="row cartaoescola">
+                        <div className="col cartaoescola">
+                            <img src={avatar} alt="ilustração - avatar escola" className="col img cartaoescola" />
                         </div>
-                        <p className="card-text cartaoescola" id="nome-responsável">Escola de Educação Básica e Profissional Dona Sinhá Neves</p>
-                        <div className="text-icon">
-                            <img src={schoolIcon} className="text-icon icon" />
-                            <h5 className="card-title cartaoescola" id="escola">Endereço:</h5>
+                        <div className="col cartaoescola titulo">
+                            <div className="titulo-corpo cartaoescola">
+                                <div className="text-icon">
+                                    <img src={schoolIcon} className="text-icon icon" />
+                                    <h5 className="card-title cartaoescola">Escola:</h5>
+                                </div>
+                                <p className="card-text cartaoescola" id="nome-escola">{this.state.nome}</p>
+                            </div>
+                            <div className="titulo-corpo cartaoescola">
+                                <div className="text-icon">
+                                    <img src={schoolIcon} className="text-icon icon" />
+                                    <h5 className="card-title cartaoescola">Endereço:</h5>
+                                </div>
+                                <p className="card-text cartaoescola" id="endereco-escola">{this.state.cidade} - {this.state.estado}</p>
+                            </div>
                         </div>
-                        <p className="card-text cartaoescola" id="nome-escola">São João del Rei - MG</p>
+                        <div className="col cartaoescola botao">
+                            <Link to='/'>
+                                <button className="btn btn-warning">Ver alunos</button>
+                            </Link>
+                        </div>
 
                     </div>
-                    <div className="col cartaoescola botao">
-                        <Link to='/'>
-                            <button className="btn btn-warning">Ver alunos</button>
-                        </Link>
-                    </div>
-
                 </div>
             </div>
         )

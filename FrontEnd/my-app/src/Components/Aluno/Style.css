@@ -45,12 +45,13 @@ label {
 	margin: 0 22%;
 }
 
-.avatar{
-	min-width: 300px;
+.col.img.cartaoaluno{
+	min-width: 130px;
 	display: flex;
-	min-height: 30vmin;
-	width: 30vmin;
-	border-radius: 15px;
+	min-height: 130px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px;
 }
 
 .col.cartaoaluno{
@@ -81,9 +82,7 @@ label {
 }
 .container.cartaoaluno{
 	border-radius: 15px;
-	margin-top: 2vh;
-	margin-left: 2vw;
-	margin-right: 2vw;
+	margin-bottom: 2vh;
 	padding: 0 2% 2%;
 	min-width: 80vw;
 	font-weight: 400;
@@ -101,9 +100,7 @@ label {
 	margin-bottom: auto;
 	margin-top: auto;
 }
-.col.img.cartaoaluno{
-	min-width: 130px;
-}
+
 .col.cartaoaluno.botao{
 	display: flex;
 	justify-content: flex-end;

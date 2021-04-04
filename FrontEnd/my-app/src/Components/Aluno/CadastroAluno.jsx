@@ -51,7 +51,7 @@ class CadastroAluno extends Component {
     }
 	render() {
 		return (
-			<div>
+            <div className="corpo">
 				<div className="moldura">
 					<header>
 						<h1>Faça seu cadastro!</h1>

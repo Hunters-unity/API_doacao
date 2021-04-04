@@ -48,7 +48,7 @@ class PaginaDoacao extends Component {
 
     render() {
         return (
-            <div>
+            <div className="corpo">
                 
                     <header>
                         <h1>Faça sua Doação!</h1>

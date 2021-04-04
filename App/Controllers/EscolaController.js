@@ -70,6 +70,15 @@ const EscolaController = {
         } catch {
             return res.status(400).send({ erro: error.message });
         }
+    },
+    listarPorId: async (req, res) => {
+        try {
+            const escola = await (await Escola.findById(req.params.id));
+
+            return res.send({ escola });
+        } catch {
+            return res.status(400).send({ erro: "erro ao procurar escola" });
+        }
     }
 }
 

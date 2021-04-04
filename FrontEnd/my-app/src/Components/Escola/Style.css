@@ -54,6 +54,14 @@ label {
 	flex-wrap: wrap;
 	justify-content: space-between;
 }
+.titulo-corpo.cartaoescola{
+	margin-top: 1rem;
+	display: block;
+}
+.card-title.cartaoescola{
+	margin-top: auto;
+	margin-bottom: auto;
+}
 .col.cartaoescola.botao{
 	display: flex;
 	margin-top: auto;
@@ -74,4 +82,8 @@ label {
 .col.cartaoescola{
 	padding-top: 2vh;
 	min-width: 240px;
+}
+
+.text-icon{
+	padding-bottom: 0.2rem;
 }

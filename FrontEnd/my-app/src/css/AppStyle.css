@@ -1,9 +1,10 @@
 body {
-    margin: 2em;
     background-color: #f6f6f6;
 	font-family: 'Poppins', sans-serif;
 }
-
+.corpo{
+    padding: 2em;
+}
 .titulo-1 {
     font-size: 3em;
     font-weight: bold;
@@ -39,7 +40,11 @@ body {
     color: #f27141;
     border: 1px solid #f27141;
 }
-
+.top-area{
+    background-image: linear-gradient(rgb(221, 218, 224),rgb(235, 235, 235),rgb(244, 244, 245),aliceblue);
+    display: flex;
+    min-height:3vh;
+}
 /*LANDING PAGE*/
 .secao-landing {
     margin: 5em 0;
@@ -60,8 +65,94 @@ body {
 /*CARDS ALUNOS*/
 .meu-container-cards {
 	height: 70vh;
-	overflow: auto;
+	overflow-y: auto;
+    overflow-x: hidden;
 }
+.col.img.cartaoaluno{
+	min-width: 130px;
+	display: flex;
+	min-height: 130px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px;
+}
+
+.col.cartaoaluno{
+	border-radius: 15px;
+	position: relative;
+	vertical-align: middle;
+ 	margin-top: auto;
+	align-items: middle;
+	min-width: 220px;
+	padding-top: 2rem;
+
+}
+
+.col.cartaoaluno.md{
+	margin-bottom: auto;
+	border-radius: 0px;
+	border-left: 2px solid rgb(240, 248, 245);
+}
+.card-title.cartaoaluno{
+	color: #5503A6;
+	margin-top: 1rem;
+}
+.card-text.cartaoaluno{
+	color: #2B2B2B, 100%;
+}
+.col.titulo.cartaoaluno{
+	margin-bottom: auto;
+}
+.container.cartaoaluno{
+	border-radius: 15px;
+	margin-bottom: 2vh;
+	padding: 0 2% 2%;
+	min-width: 80vw;
+	font-weight: 400;
+	max-width: 94vw;
+	text-align: left;
+	font-size: 16px;
+	background-color: white;
+}
+.text-icon{
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: left;
+}
+.text-icon.icon{
+	margin-bottom: auto;
+	margin-top: auto;
+}
+
+.col.cartaoaluno.botao{
+	display: flex;
+	justify-content: flex-end;
+	align-self: flex-end;
+	margin-top: 2vh;
+}
+.botao-doacao{
+	position: relative;
+
+	max-width: 118;
+}
+
+.btn.btn-warning{
+	background-color: #F27141;
+	border-color: unset;
+	color: white;
+}
+.row.cartaoaluno{
+	padding: 0;
+}
+
+.materiais-doados{
+	padding-left: 10%;
+}
+
+.container{
+	font-family: 'Poppins';
+}
+
 
 /*FOOTER*/
 .rodape-menu {
@@ -76,6 +167,6 @@ height: 5em;
 /*RESPONSIVIDADE*/
 @media (max-width: 576px) {
     .meu-container-cards {
-        height: 40vh;
+        height: 60vh;
     }
 }

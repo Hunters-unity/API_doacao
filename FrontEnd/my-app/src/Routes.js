@@ -2,27 +2,27 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import CadastroAluno from './Components/Aluno/CadastroAluno'
 import PaginaDoacao from './Components/Doacao/PaginaDoacao'
 import CadastroEscola from './Components/Escola/CadastroEscola'
-import FormCadastro from './Components/CadastroResponsavel/CadastroPerfil'
+import FormCadastro from './Components/Responsavel/CadastroPerfil'
 import Landing from './Components/LandingPage/LandingPage'
 import Home from './Components/Home/Home'
-import Navegacao from './Components/Nav/Nav'
-import LoginResponsavel from './Components/CadastroResponsavel/LoginResposavel'
+import NavBar from './Components/Nav/Nav'
+import LoginResponsavel from './Components/Responsavel/LoginResposavel'
 import CardEscola from './Components/Escola/CardEscola'
 
 
 function Rotas() {
     return (
         <Router>
-            <Navegacao/>
+            <NavBar/>
             <Switch>
-                <Route path="/CadastroEscola" component={CadastroEscola}/>
-                <Route path="/CadastroResponsavel" component={FormCadastro}/>
-                <Route path="/CadastroAluno" component={CadastroAluno}/>
-                <Route path="/Doacao" component={PaginaDoacao}/>
+                <Route path="/cadastroEscola" component={CadastroEscola}/>
+                <Route path="/cadastroResponsavel" component={FormCadastro}/>
+                <Route path="/cadastroAluno" component={CadastroAluno}/>
+                <Route path="/doacao" component={PaginaDoacao}/>
                 <Route path="/" exact component={Home} />
-                <Route path="/Landing" component={Landing}/>
-                <Route path="/Login" component={LoginResponsavel}/>
-                <Route path="/Escolas" component={CardEscola}/>
+                <Route path="/landing" component={Landing}/>
+                <Route path="/login" component={LoginResponsavel}/>
+                <Route path="/escolas" component={CardEscola}/>
             </Switch>
         </Router>
     )
