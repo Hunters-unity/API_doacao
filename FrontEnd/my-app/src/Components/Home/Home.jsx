@@ -6,7 +6,7 @@ import imagemEscola from './corredor-escola.jpg'
 import { Link } from 'react-router-dom'
 import CardAluno from '../Aluno/CardAluno'
 
-class LandingPage extends Component { //MARCOS, ARRUMAR O NOME PARA: Home
+class Home extends Component { 
     render() {
         return (
             <div className='botton-background'>
@@ -78,4 +78,4 @@ class LandingPage extends Component { //MARCOS, ARRUMAR O NOME PARA: Home
     }
 }
 
-export default LandingPage; //ARRUMAR O NOME PARA: Home
+export default Home;

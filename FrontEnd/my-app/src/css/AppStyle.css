@@ -1,0 +1,52 @@
+body {
+    margin: 2em;
+}
+
+.titulo-1 {
+    font-size: 3em;
+    font-weight: bold;
+}
+.titulo-2 {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+.titulo-3{
+    font-size: 2em;
+    font-weight: bold;
+}
+.titulo-4 {
+    font-size: 1.5em;
+}
+.titulo-5{
+    font-size: 1.2em;
+}
+
+/*LANDING PAGE*/
+.secao-landing {
+    margin: 5em 0;
+}
+.banner-escola-landing {
+    background-color: #5503a6;
+    color: #ffffff;
+    height: 40vh;
+}
+
+
+
+
+
+/*CSS CARDS ALUNOS*/
+.meu-container-cards {
+	height: 40vh;
+	overflow: auto;
+}
+
+/*FOOTER*/
+.rodape-menu {
+height: 5em;
+}
+.rodape-rede-social {
+    background-color: #2e186a;
+    color: #ffffff;
+    height: 3em;
+}
