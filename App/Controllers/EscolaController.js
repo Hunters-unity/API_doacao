@@ -23,7 +23,7 @@ const EscolaController = {
 
     listar: async (req, res) => {
         try {
-            const escolas = await Escola.find().limit(50);
+            const escolas = await Escola.find().limit(5);
 
 
             return res.status(200).send({ escolas });

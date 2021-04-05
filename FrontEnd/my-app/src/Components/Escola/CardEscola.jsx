@@ -4,15 +4,17 @@ import axios from 'axios'
 import avatar from '../Imagens/corredor-escola.jpg'
 import schoolIcon from '../Imagens/schoolIcon.png'
 import { Link } from "react-router-dom";
+import ReactDOM from 'react-dom';
+
 
 class CardEscola extends Component {
     constructor() {
         super();
         this.state = {
             avatar: "",
-            estado: "MG",
-            cidade: "São João del Rei",
-            nome: "Escola de Educação Básica e Profissional Dona Sinhá Neves",
+            estado: "",
+            cidade: "",
+            nome: "",
             quantidadeAlunos: "",
             id: ""
         }
@@ -31,9 +33,10 @@ class CardEscola extends Component {
         })
     }
     async componentDidMount() {
-        axios.get('http://localhost:3001/escolas/listar/6063f3ba8b88e3d38e1b9b57').then(response => {
-            this.setState({ estado: response.data.escola.estado, cidade: response.data.escola.cidade, nome: response.data.escola.nome })
-        })
+        await axios.get('http://localhost:3001/escolas/listar/' + this.props._id).then(async response => {
+            var escola =  await response.data.escola.nome
+            this.setState({ estado: response.data.escola.estado, cidade: response.data.escola.cidade, nome: escola })
+        }).catch(err => console.log(err))
     }
 
 

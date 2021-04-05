@@ -6,30 +6,26 @@ import axios from 'axios'
 class CadastroAluno extends Component {
 	constructor() {
 		super();
-		this.state = { placeholder: [""], aluno: { escola: "", nome: "", ano_letivo: "", lista: [], responsavel: "" } }
-		this.cidade = ["Selecione"]
-		this.escola = ["Selecione"]
+		this.state = { cidade: [""], escola: [""], aluno: { escola: "", nome: "", ano_letivo: "", lista: [], responsavel: "" } }
 	}
 	getCidade(event) {
 		var estado = event.target.value;
 		var cidades = ["Selecione"];
-		axios.get('http://localhost:3001/escolas/listarPorEstado/' + estado).then(response => {
-			response.data.map((element) =>
+		axios.get('http://localhost:3001/escolas/listarPorEstado/' + estado).then(async response => {
+			await response.data.map((element) =>
 				cidades.push(element)
 			)
-			this.cidade = cidades;
-			this.setState({ placeholder: cidades })
-		})
+			this.setState({ cidade: cidades })
+		}).catch(err => console.log(err))
 	}
 	getEscola(event) {
 		var cidade = event.target.value;
 		var escolas = ["Selecione"];
-		axios.get('http://localhost:3001/escolas/listarPorCidade/' + cidade).then(response => {
-			response.data.map((element) =>
+		axios.get('http://localhost:3001/escolas/listarPorCidade/' + cidade).then(async response => {
+			await response.data.map((element) =>
 				escolas.push(element)
 			)
-			this.escola = escolas;
-			this.setState({ placeholder: escolas })
+			this.setState({ escola: escolas })
 		})
 	}
 	handlerAddItem(evento) {
@@ -106,7 +102,7 @@ class CadastroAluno extends Component {
 							<div className="form-row">
 								<label htmlFor="escola-cidade"><strong>Selecione a cidade</strong></label>
 								<select className="form-control" id="escola-cidade" required onChange={this.getEscola.bind(this)}>
-									{this.cidade.map((categoria) => {
+									{this.state.cidade.map((categoria) => {
 										return (
 											<option>
 												{categoria}
@@ -118,7 +114,7 @@ class CadastroAluno extends Component {
 							<div className="form-row">
 								<label htmlFor="nome-escola"><strong>Nome da Escola</strong></label>
 								<select className="form-control" id="nome-escola" required onChange={event => { this.setState({ aluno: { ...this.state.aluno, escola: event.target.value } }) }}>
-									{this.escola.map((categoria) => {
+									{this.state.escola.map((categoria) => {
 										return (
 											<option>
 												{categoria}

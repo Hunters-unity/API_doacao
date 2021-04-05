@@ -32,7 +32,7 @@ function Navegacao(props) {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem>
-                            <NavLink><Link to='/'>Início</Link></NavLink>
+                            <NavLink><Link to='/home'>Início</Link></NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink>Como Doar</NavLink>
