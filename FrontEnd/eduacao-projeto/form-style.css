@@ -34,9 +34,20 @@ header{
 	font-weight: 600;
 }
 
-.titulo-formulario, .subtitulo-formulario {
-	color: steelblue;
+.titulo-formulario {
+	color: #1B1C1E;
 	text-align: center;
+	
+}
+
+.subtitulo-formulario {
+	color:#1F1F1F;
+	text-align: center;
+}
+
+.titulo-pequeno {
+	font-size: 1.5em;
+	color:#1F1F1F;
 	
 }
 

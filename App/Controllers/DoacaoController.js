@@ -1,61 +1,77 @@
-const express = require('express');
-
 const Doacao = require('../Models/Doacao');
 const ItemDoacao = require('../Models/ItemDoacao');
+const Lista = require('../Models/ListaDoacao');
 
-const router = express.Router();
+const DoacaoController = {
 
+    lista: async (req, res) => {
+        try {
+            const doacao = await Doacao.find().populate('itens_doados').limit(5);
+            return res.send({ doacao });
 
-router.get('/', async (req,res) =>{
-    try{
-        const  doacao = await Doacao.find().populate('itens_doados').limit(5);
-        return res.send({doacao});
+        } catch {
+            return res.status(400).send({ erro: "erro ao procurar doações" });
+        }
+    },
 
-    } catch{
-        return res.status(400).send( {erro: "erro ao procurar doações" });
-    }
-})
+    busca: async (req, res) => {
+        try {
+            const doacao = await Doacao.findById(req.params.doacaoID).populate('itens_doados');
 
-router.get('/:doacaoID', async (req,res) =>{
-    try{
-        const  doacao = await Doacao.findById(req.params.doacaoID).populate('itens_doados');
+            return res.send({ doacao });
+        } catch {
+            return res.status(400).send({ erro: "erro ao procurar doação" });
+        }
+    },
 
-        return res.send({doacao});
-    } catch{
-        return res.status(400).send( {erro: "erro ao procurar doação" });
-    }
-})
-
-
-
-router.post('/', async (req,res) =>{
-    try{
-        const { nome, anonimo, email, telefone, itens_doados} = req.body;
-
-        
-        const doacao = await Doacao.create({nome, anonimo,email,telefone,itens_doados});
-        
-        itens_doados.map( async item =>{
-            await ItemDoacao.updateMany({_id: item},{$set: {doador: doacao._id, doado: true}});
-        });
+    cadastro: async (req, res) => {
+        try {
+            const { nome, anonimo, email, telefone, itens_doados } = req.body;
 
 
-        return res.status(201).send({doacao});
-    }
-    catch (err){
-        console.log(err);
-        return res.status(400).send( {erro: "erro ao criar nova doação" });
-    }
-})
+            const doacao = await Doacao.create({ nome, anonimo, email, telefone, itens_doados });
 
-router.delete('/:doacaoID', async (req,res) =>{
-    try{
-        await Doacao.findByIdAndRemove(req.params.doacaoID);
-        res.status(204).send();
-    } catch{
-        return res.status(400).send( {erro: "erro ao procurar doação" });
-    }
-})
+            itens_doados.map(async item => {
+                await ItemDoacao.updateMany({ _id: item }, { $set: { doador: doacao._id, doado: true } });
+            });
 
- module.exports = app => app.use('/doacao', router);
+
+            return res.status(201).send({ doacao });
+        }
+        catch (err) {
+            console.log(err);
+            return res.status(400).send({ erro: "erro ao criar nova doação" });
+        }
+    },
+
+    excluir: async (req, res) => {
+        try {
+            await Doacao.findByIdAndRemove(req.params.doacaoID);
+            res.status(204).send();
+        } catch {
+            return res.status(400).send({ erro: "erro ao procurar doação" });
+        }
+    },
+
+    listaMaterial: async (req, res) => {
+        try {
+            const lista = await Lista.findById(req.params.id);
+
+            return res.send({ lista });
+        } catch {
+            return res.status(400).send({ erro: "erro ao procurar doação" });
+        }
+    },
+    listaItem: async (req, res) => {
+        try {
+            const item = await ItemDoacao.findById(req.params.id);
+
+            return res.send({ item });
+        } catch {
+            return res.status(400).send({ erro: "erro ao procurar doação" });
+        }
+    }}
+
+module.exports = DoacaoController;
+
 

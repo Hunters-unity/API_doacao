@@ -11,15 +11,20 @@ const ResponsavelSchema = new mongoose.Schema({
         require: true,
     },
     cpf: {
-        type: Number,
+        type: String,
         require: true,
     },
     telefone: {
-        type: Number,
+        type: String,
         require: true,
     },
-    aluno: {
+    perfil:{
         type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Perfil',
+        require: true
+    },
+    alunos: {
+        type: [mongoose.Schema.Types.ObjectId], 
         ref: 'Aluno',
         require: true
     },

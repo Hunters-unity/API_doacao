@@ -11,8 +11,7 @@ const EscolaSchema = new mongoose.Schema({
         require: true,
     },
     endereco: {
-        type: Number,
-        unique: true,
+        type: String,
         require: true,
     },
     estado: {
@@ -39,7 +38,7 @@ const EscolaSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-    logo: {
+    numero: {
         type: String,
     },
 });

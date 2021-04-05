@@ -10,14 +10,13 @@ const listaDoacaoSchema = new mongoose.Schema({
     aluno: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Aluno',
-        require: true
     },
     dataPedido: {
         type: Date,
         default: Date.now,
     },
-    enderecoEscola:{
-        type: String, 
+    enderecoEscola: {
+        type: String,
         require: true
     }
 });

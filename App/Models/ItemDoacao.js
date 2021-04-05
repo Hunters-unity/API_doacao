@@ -6,16 +6,8 @@ const itemDoacaoSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
-    tipo: {
-        type: String,
-        require: true,
-    },
-    valor: {
-        type: Number,
-        require: true,
-    },
     doado: {
-        type: String,
+        type: Boolean,
         require: true,
         default: false
     },
