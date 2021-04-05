@@ -12,7 +12,7 @@ class CadastroEscola extends Component {
         }
 
     }
-
+    //coloca telefone no padrão (xx) xxxx-xxxx
     mascaraTelefone(event) {
         var telefone = event.target.value;
         if (telefone.length === 1) {
@@ -41,7 +41,7 @@ class CadastroEscola extends Component {
             event.target.value = celular + '-';
         }
     }
-
+    //coloca cep no padrão  xxxxx-xxx
     mascaraCep(event) {
         var cep = event.target.value;
         if (cep.length === 5) {
@@ -49,7 +49,7 @@ class CadastroEscola extends Component {
         }
     }
 
-
+    //limpa formulário de endereço
     limpaFormulárioCep(event) {
         document.getElementById('endereco').value = ("");
         document.getElementById('bairro').value = ("");
@@ -58,6 +58,7 @@ class CadastroEscola extends Component {
         document.getElementById('cep').value = ("");
     }
 
+    //pesquisa endereço por cep e preenche o formulário
     async pesquisaCep(event) {
         var cep = event.target.value;
         if (cep !== "" && cep.length === 9) {

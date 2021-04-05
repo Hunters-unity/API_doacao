@@ -20,7 +20,7 @@ const AlunoController = {
             return res.status(400).send({ erro: error.message });
         }
     },
-    buscar: async (req, res) => {
+    listar: async (req, res) => {
         try {
             const alunos = await Aluno.find().limit(5);
 
@@ -29,6 +29,15 @@ const AlunoController = {
 
         } catch (error) {
 
+        }
+    },
+    buscar: async (req, res) => {
+        try {
+            const aluno = await Aluno.findById(req.params.id);
+
+            return res.send({ aluno });
+        } catch {
+            return res.status(400).send({ erro: "erro ao procurar escola" });
         }
     }
 

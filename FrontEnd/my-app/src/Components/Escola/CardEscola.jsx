@@ -4,7 +4,6 @@ import axios from 'axios'
 import avatar from '../Imagens/corredor-escola.jpg'
 import schoolIcon from '../Imagens/schoolIcon.png'
 import { Link } from "react-router-dom";
-import ReactDOM from 'react-dom';
 
 
 class CardEscola extends Component {
@@ -23,7 +22,6 @@ class CardEscola extends Component {
     //mostra dados da escola
     async handlerCriaLista(objeto) {
         await this.removeItemOnce(this.state.listaMateriais.nome, "")
-        console.log(objeto)
         var nomeTemp = this.state.listaMateriais.nome
         var idTemp = this.state.listaMateriais.id
         nomeTemp.push(objeto.item)
@@ -32,8 +30,9 @@ class CardEscola extends Component {
             listaMateriais: { nome: nomeTemp, id: idTemp }
         })
     }
+    //busca escola relativa ao cartão
     async componentDidMount() {
-        await axios.get('http://localhost:3001/escolas/listar/' + this.props._id).then(async response => {
+        await axios.get('http://localhost:3001/escolas/buscar/' + this.props._id).then(async response => {
             var escola =  await response.data.escola.nome
             this.setState({ estado: response.data.escola.estado, cidade: response.data.escola.cidade, nome: escola })
         }).catch(err => console.log(err))

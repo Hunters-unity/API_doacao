@@ -4,7 +4,7 @@ const EscolaController = require('../Controllers/EscolaController')
 
 router.post('/cadastrar', EscolaController.cadastrar);
 router.get('/listar', EscolaController.listar);
-router.get('/listar/:id', EscolaController.listarPorId);
+router.get('/buscar/:id', EscolaController.listarPorId);
 router.delete('/excluir/:id', EscolaController.excluir);
 router.get('/listarPorCidade/:id',EscolaController.listarPorCidade)
 router.get('/listarPorEstado/:id',EscolaController.listarPorEstado)

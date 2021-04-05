@@ -13,6 +13,7 @@ class Home extends Component {
         super();
         this.state = {
             listaEscolas: [],
+            listaAlunos: []
         }
     }
 
@@ -27,8 +28,16 @@ class Home extends Component {
             }
         }
         )
-
-
+        await axios.get('http://localhost:3001/aluno/listar').then(response => {
+            if (response.data.alunos !== undefined) {
+                var listaTemp = [];
+                response.data.alunos.map(element => {
+                    listaTemp.push(element._id)
+                })
+                this.setState({ listaAlunos: listaTemp })
+            }
+        }
+        )
     }
     render() {
         return (
@@ -37,7 +46,6 @@ class Home extends Component {
                     <form class="form-inline my-2 my-lg-0"
                         onSubmit={event => {
                             event.preventDefault();
-                            console.log(this.state)
                         }}>
                         <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar Escolas" aria-label="Search" />
                         <button class="btn botao-pesquisa my-2 my-sm-0" type="submit">Pesquisar</button>
@@ -48,8 +56,9 @@ class Home extends Component {
                             <h4 className="titulo-4">Confira as listas de material recém adicionados</h4>
                         </div>
                         <div className="meu-container-cards">
-                            <CardAluno />
-                            <CardAluno />
+                            {this.state.listaAlunos.map(element =>
+                                <CardAluno _id={element} />
+                            )}
                         </div>
                     </section>
                     <section className="secao-home">

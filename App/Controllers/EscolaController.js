@@ -73,7 +73,7 @@ const EscolaController = {
     },
     listarPorId: async (req, res) => {
         try {
-            const escola = await (await Escola.findById(req.params.id));
+            const escola = await Escola.findById(req.params.id);
 
             return res.send({ escola });
         } catch {

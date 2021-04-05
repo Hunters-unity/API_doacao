@@ -9,6 +9,7 @@ class CardAluno extends Component {
     constructor() {
         super();
         this.state = {
+            lista: "",
             avatar: "",
             responsavel: "",
             ano: "",
@@ -38,7 +39,6 @@ class CardAluno extends Component {
     }
     async handlerCriaLista(objeto) {
         await this.removeItemOnce(this.state.listaMateriais.nome, "")
-        console.log(objeto)
         var nomeTemp = this.state.listaMateriais.nome
         var idTemp = this.state.listaMateriais.id
         nomeTemp.push(objeto.item)
@@ -48,17 +48,22 @@ class CardAluno extends Component {
         })
     }
     async componentDidMount() {
+        await axios.get('http://localhost:3001/aluno/buscar/' + this.props._id).then(async response => {
+            await axios.get('http://localhost:3001/escolas/buscar/' + response.data.aluno.escola).then(async response => await this.setState({escola: response.data.escola.nome}))
+            this.setState({ lista: response.data.aluno.lista[0], responsavel: response.data.aluno.nome});
+
+        }).catch( err => console.log(err))
         if (this.listaDoados.id[0] === undefined) {
-            axios.patch('http://localhost:3001/doacao/60689ddaaa112bc192142b3c').then(response => { //falta rota de busca de dado do aluno
-                response.data.doacao.itens.map(element => {
-                    axios.put('http://localhost:3001/doacao/' + element).then(response => {
-                        if (response.data.doacao.doado === false) {
-                            this.handlerCriaLista(response.data.doacao)
+            axios.get('http://localhost:3001/lista/material/' + this.state.lista).then(response => { //falta rota de busca de dado do aluno
+                response.data.lista.itens.map(element => {
+                    axios.get('http://localhost:3001/lista/item/' + element).then(response => {
+                        if (response.data.item.doado === false) {
+                            this.handlerCriaLista(response.data.item)
                         }
                     }
                     )
                 })
-            })
+            }).catch( err => console.log(err))
         }
     }
 
@@ -83,12 +88,12 @@ class CardAluno extends Component {
                             <img src={userIcon} className="text-icon icon" />
                             <h5 className="card-title cartaoaluno" id="responsável">Responsável:</h5>
                         </div>
-                        <p className="card-text cartaoaluno" id="nome-responsável">Sônia Souza</p>
+                        <p className="card-text cartaoaluno" id="nome-responsável">{this.state.responsavel}</p>
                         <div className="text-icon">
                             <img src={schoolIcon} className="text-icon icon" />
                             <h5 className="card-title cartaoaluno" id="escola">Escola:</h5>
                         </div>
-                        <p className="card-text cartaoaluno" id="nome-escola">Escola Estadual Djalma</p>
+                        <p className="card-text cartaoaluno" id="nome-escola">{this.state.escola}</p>
 
                     </div>
                     <div className="col cartaoaluno md">

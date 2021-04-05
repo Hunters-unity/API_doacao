@@ -1,6 +1,6 @@
 const Doacao = require('../Models/Doacao');
 const ItemDoacao = require('../Models/ItemDoacao');
-const lista = require('../Models/ListaDoacao');
+const Lista = require('../Models/ListaDoacao');
 
 const DoacaoController = {
 
@@ -55,18 +55,18 @@ const DoacaoController = {
 
     listaMaterial: async (req, res) => {
         try {
-            const doacao = await (await lista.findById(req.params.id)).populate('itens');
+            const lista = await Lista.findById(req.params.id);
 
-            return res.send({ doacao });
+            return res.send({ lista });
         } catch {
             return res.status(400).send({ erro: "erro ao procurar doação" });
         }
     },
     listaItem: async (req, res) => {
         try {
-            const doacao = await (await ItemDoacao.findById(req.params.id));
+            const item = await ItemDoacao.findById(req.params.id);
 
-            return res.send({ doacao });
+            return res.send({ item });
         } catch {
             return res.status(400).send({ erro: "erro ao procurar doação" });
         }

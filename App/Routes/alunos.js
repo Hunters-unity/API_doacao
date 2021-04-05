@@ -3,7 +3,9 @@ const router = express.Router();
 const AlunoController = require('../Controllers/AlunoController')
 
 router.post('/cadastrar', AlunoController.cadastrar);
-router.get('/listar', AlunoController.buscar);
+router.get('/listar', AlunoController.listar);
+router.get('/buscar/:id', AlunoController.buscar);
+
 // router.delete('/excluir/:id', AlunoController.excluir);
 
 

@@ -12,6 +12,7 @@ require('../App/Routes/escolas')(app);
 require('../App/Routes/perfil')(app);
 require('../App/Routes/responsavel')(app);
 require('../App/Routes/alunos')(app);
+require('../App/Routes/lista')(app);
 
 
 app.listen(3001, () => console.log('servidor rodando na porta 3001'))
