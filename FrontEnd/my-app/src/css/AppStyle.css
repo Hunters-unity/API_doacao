@@ -210,6 +210,11 @@ label {
 }
 
 /*CARDS ALUNOS*/
+.lista-material-aluno{
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 20vh;
+}
 /*.botao-doacao{
 	position: relative;
 	max-width: 118;

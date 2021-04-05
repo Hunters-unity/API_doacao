@@ -100,7 +100,7 @@ class CardAluno extends Component {
                         <form>
                             <fieldset className="materiais-doados">
                                 <legend className="card-title cartaoaluno">Lista de Materiais</legend>
-                                <ul>
+                                <ul className="lista-material-aluno">
                                     {this.state.listaMateriais.nome.map((categoria, index) => {
                                         return (
                                             <li key={index}>
