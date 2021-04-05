@@ -23,7 +23,6 @@ const EscolaController = {
 
     listar: async (req, res) => {
         var match = {};
-        var limit = ""
 
         try {
             Object.keys(req.query).map(function (key, index) {
@@ -33,21 +32,21 @@ const EscolaController = {
             });
             if (req.query.limit !== undefined) {
                 if (req.query.nome !== undefined) {
-                    const escolas = await Escola.find({nome: {$regex: match.nome}}).limit(parseInt(req.query.limit));
+                    const escolas = await Escola.find({nome: {$regex: match.nome}}).limit(parseInt(req.query.limit)).sort({ dataAdicao: -1 });
                     return res.status(200).send({ escolas });   
                 }
-                const escolas = await Escola.find(match).limit(parseInt(req.query.limit));
+                const escolas = await Escola.find(match).limit(parseInt(req.query.limit)).sort({ dataAdicao: -1 });
                 return res.status(200).send({ escolas });
 
             }
             if (req.query.nome !== undefined) {
                 console.log(match.nome)
-                const escolas = await Escola.find({nome: {$regex: match.nome}});
+                const escolas = await Escola.find({nome: {$regex: match.nome}}).sort({ dataAdicao: -1 });
                 return res.status(200).send({ escolas });
 
             }
             else {
-                const escolas = await Escola.find(match);
+                const escolas = await Escola.find(match).sort({ dataAdicao: -1 });
                 return res.status(200).send({ escolas });
 
             }

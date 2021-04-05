@@ -2,6 +2,7 @@ import React from 'react'
 import '../../css/AppStyle.css';
 import axios from 'axios'
 import { Component } from 'react'
+import { Link, Redirect } from 'react-router-dom';
 
 class FormCadastro extends Component {
     constructor() {
@@ -9,15 +10,19 @@ class FormCadastro extends Component {
         this.state = {
             nome_responsavel: "",
             email: "",
-            senha: ""
+            senha: "",
+            redirect: false
         }
     }
 
 
     render() {
+        if (this.state.redirect) {
+            return (<Redirect to="/home" />)
+        }
         return (
             <div className="corpo">
-            
+
                 <header >
                     <h1>Faça seu cadastro!</h1>
                     <p>É simples, rápido e GRÁTIS!</p>
@@ -26,8 +31,9 @@ class FormCadastro extends Component {
                     <h2 className="titulo-formulario">Informações de Acesso</h2>
                     <form onSubmit={(event) => {
                         console.log(this.state)
-                        //axios.post('http://localhost:3001/perfil/cadastrar', this.state);
+                        axios.post('http://localhost:3001/perfil/cadastrar', this.state);
                         event.preventDefault()
+                        this.setState({ redirect: true })
                     }}>
                         <fieldset className="informacoes-responsavel">
                             <div className="form-row">
@@ -44,10 +50,10 @@ class FormCadastro extends Component {
                             </div>
 
                         </fieldset>
-                        <a href="cadastro-responsavel.html"><button className="botao btn btn-primary" type="submit">Cadastrar</button></a>
+                        <button className="botao btn btn-primary" type="submit">Cadastrar</button>
                     </form>
                 </div>
-            
+
             </div>
         )
 

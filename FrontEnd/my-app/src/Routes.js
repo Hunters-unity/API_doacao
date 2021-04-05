@@ -11,6 +11,7 @@ import LoginResponsavel from './Components/Responsavel/LoginResposavel'
 import Escolas from './Components/Escola/Escolas'
 import PaginaNaoEncontrado from './Components/Nav/NaoEncontrado'
 import SucessoDoacao from './Components/Nav/SucessoDoacao'
+import Alunos from './Components/Aluno/Alunos'
 
 function Rotas() {
     return (
@@ -24,10 +25,11 @@ function Rotas() {
                 <Route path="/home" component={Home} />
                 <Route path="/" exact component={Landing}/>
                 <Route path="/login" component={LoginResponsavel}/>
-                <Route path="/escolas/" component={Escolas}/>
+                <Route path="/escolas/" exact component={Escolas}/>
                 <Route path="/paginaerro" component={PaginaErro}/>
                 <Route path="/naoencontrado" component={PaginaNaoEncontrado}/>
                 <Route path="/sucessodoacao" component={SucessoDoacao}/>
+                <Route path="/alunos/" component={Alunos}/>
             </Switch>
         </Router>
     )

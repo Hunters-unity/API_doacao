@@ -4,6 +4,8 @@ import axios from 'axios'
 import avatar from '../Imagens/avatar/Avatar-24.png'
 import userIcon from '../Imagens/userIcon.png'
 import schoolIcon from '../Imagens/schoolIcon.png'
+import { Redirect } from "react-router-dom";
+
 
 class CardAluno extends Component {
     constructor() {
@@ -15,6 +17,7 @@ class CardAluno extends Component {
             ano: "",
             ensino: "",
             escola: "",
+            redirect: false,
             listaMateriais: { id: [], nome: [""] },
         }
         this.listaDoados = { id: [], nome: [] }
@@ -33,10 +36,9 @@ class CardAluno extends Component {
             this.removeItemOnce(this.listaDoados.nome, evento.target.name)
             this.removeItemOnce(this.listaDoados.id, id)
         }
-        console.log(this.state)
-        console.log("\n ")
-        console.log(this.listaDoados)
+
     }
+    //cria lista de itens que o aluno necessita
     async handlerCriaLista(objeto) {
         await this.removeItemOnce(this.state.listaMateriais.nome, "")
         var nomeTemp = this.state.listaMateriais.nome
@@ -49,10 +51,10 @@ class CardAluno extends Component {
     }
     async componentDidMount() {
         await axios.get('http://localhost:3001/aluno/buscar/' + this.props._id).then(async response => {
-            await axios.get('http://localhost:3001/escolas/buscar/' + response.data.aluno.escola).then(async response => await this.setState({escola: response.data.escola.nome}))
-            this.setState({ lista: response.data.aluno.lista[0], responsavel: response.data.aluno.nome});
+            await axios.get('http://localhost:3001/escolas/buscar/' + response.data.aluno.escola).then(async response => await this.setState({ escola: response.data.escola.nome }))
+            this.setState({ lista: response.data.aluno.lista[0], responsavel: response.data.aluno.nome });
 
-        }).catch( err => console.log(err))
+        }).catch(err => console.log(err))
         if (this.listaDoados.id[0] === undefined) {
             axios.get('http://localhost:3001/lista/material/' + this.state.lista).then(response => { //falta rota de busca de dado do aluno
                 response.data.lista.itens.map(element => {
@@ -63,7 +65,7 @@ class CardAluno extends Component {
                     }
                     )
                 })
-            }).catch( err => console.log(err))
+            }).catch(err => console.log(err))
         }
     }
 
@@ -77,6 +79,9 @@ class CardAluno extends Component {
         return arr;
     }
     render() {
+        if (this.state.redirect) {
+            return (<Redirect to='/sucessodoacao' />)
+        }
         return (
             <div className="container cartaoaluno">
                 <div className="row cartaoaluno">
@@ -97,7 +102,7 @@ class CardAluno extends Component {
 
                     </div>
                     <div className="col cartaoaluno md">
-                        <form>
+                        <form onSubmit={event => event.preventDefault()}>
                             <fieldset className="materiais-doados">
                                 <legend className="card-title cartaoaluno">Lista de Materiais</legend>
                                 <ul className="lista-material-aluno">
@@ -116,7 +121,13 @@ class CardAluno extends Component {
                         </form>
                     </div>
                     <div className="col cartaoaluno botao">
-                        <button className="btn botao botao-enviar">Doar Agora</button>
+                        <form onSubmit={async (event) => {
+                            event.preventDefault()
+                            this.setState({redirect: true})
+                            await axios.post('http://localhost:3001/doacao/', { anonimo: true, itens_doados: this.listaDoados.id })
+                        }}>
+                            <button className="btn botao botao-enviar" type="submit">Doar Agora</button>
+                        </form>
                     </div>
 
                 </div>

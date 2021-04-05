@@ -29,18 +29,34 @@ const AlunoController = {
         }
     },
     listar: async (req, res) => {
+        var match = {};
+
         try {
+            Object.keys(req.query).map(function (key, index) {
+                if (key !== "limit") {
+                    match[key] = req.query[key]
+                }
+            });
             if (req.query.limit !== undefined) {
-                const alunos = await Aluno.find().limit(parseInt(req.query.limit)).sort({ dataAdicao: -1 });;
+                if (req.query.escola !== undefined) {
+                    const alunos = await Aluno.find({ nome: { $regex: match.escola } }).limit(parseInt(req.query.limit)).sort({ dataAdicao: -1 });
+                    return res.status(200).send({ alunos });
+                }
+                const alunos = await Aluno.find(match).limit(parseInt(req.query.limit)).sort({ dataAdicao: -1 });
                 return res.status(200).send({ alunos });
+
+            }
+            if (req.query.escola !== undefined) {
+                console.log(match.escola)
+                const alunos = await Aluno.find(req.query).sort({ dataAdicao: -1 });
+                return res.status(200).send({ alunos });
+
             }
             else {
-                const alunos = await Aluno.find().sort({ dataAdicao: -1 });
+                const alunos = await Escola.find(match).sort({ dataAdicao: -1 });
                 return res.status(200).send({ alunos });
+
             }
-
-
-
         } catch (error) {
             return res.status(400).send({ erro: error })
 
