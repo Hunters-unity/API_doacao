@@ -23,12 +23,8 @@ class FormCadastro extends Component {
         return (
             <div className="corpo">
 
-                <header >
-                    <h1>Faça seu cadastro!</h1>
-                    <p>É simples, rápido e GRÁTIS!</p>
-                </header>
                 <div className="container">
-                    <h2 className="titulo-formulario">Informações de Acesso</h2>
+                    <h2 className="titulo-4">Informações de Acesso</h2>
                     <form onSubmit={(event) => {
                         console.log(this.state)
                         axios.post('http://localhost:3001/perfil/cadastrar', this.state);
@@ -50,11 +46,11 @@ class FormCadastro extends Component {
                             </div>
 
                         </fieldset>
-                        <button className="botao btn btn-primary" type="submit">Cadastrar</button>
+                        <button className="botao botao-enviar btn mt-4" type="submit">Cadastrar</button>
                     </form>
-                </div>
-
             </div>
+
+            </div >
         )
 
     }

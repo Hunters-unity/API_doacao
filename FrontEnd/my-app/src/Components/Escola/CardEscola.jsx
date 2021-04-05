@@ -61,18 +61,22 @@ class CardEscola extends Component {
                                 <h5 className="card-title cartaoescola">Endereço:</h5>
                             </div>
                             <p className="card-text cartaoescola" id="endereco-escola">{this.state.cidade} - {this.state.estado}</p>
+                            <div className="col cartaoescola botao">
+                                <Link to={{
+                                    pathname: "/alunos/",
+                                    search: "?escola=" + this.state.id
+                                }}>
+
+                                    <button className="btn botao botao-doacao">Ver alunos</button>
+                                </Link>
+
+                            </div>
                         </div>
-                    </div>
-                    <div className="col cartaoescola botao">
-                        <Link to={{
-                            pathname: "/alunos/",
-                            search: "?escola="+this.state.id
-                        }}>
-                        <button className="btn btn-warning">Ver alunos</button>
-                        </Link>
+                        <div className="col cartaoescola botao">
+
+                        </div>
 
                     </div>
-
                 </div>
             </div>
         )

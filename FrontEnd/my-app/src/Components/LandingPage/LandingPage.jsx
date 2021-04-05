@@ -44,7 +44,7 @@ class Landing extends Component {
             <div className="col">
               <h1 className="titulo-1">Somos um construtor de sonhos!</h1>
               <h4 className="titulo-4">Doe mais do que matérias, ajude a construir sonhos e o futuro das crianças.</h4>
-              <a className="botao-doacao"><button className="btn btn-warning">Doar Agora</button></a>
+              <button className="btn botao botao-doacao">Doar Agora</button>
             </div>
             <div className="col">
               <img src={ilustracao6} />

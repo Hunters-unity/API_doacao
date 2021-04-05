@@ -10,6 +10,7 @@ import NavBar from './Components/Nav/Nav'
 import LoginResponsavel from './Components/Responsavel/LoginResposavel'
 import Escolas from './Components/Escola/Escolas'
 import PaginaNaoEncontrado from './Components/Nav/NaoEncontrado'
+import MateriaisDoados from './Components/Doacao/MateriaisDoados'
 import SucessoDoacao from './Components/Nav/SucessoDoacao'
 import Alunos from './Components/Aluno/Alunos'
 
@@ -28,6 +29,7 @@ function Rotas() {
                 <Route path="/escolas/" exact component={Escolas}/>
                 <Route path="/paginaerro" component={PaginaErro}/>
                 <Route path="/naoencontrado" component={PaginaNaoEncontrado}/>
+                <Route path="/materiaisdoados" component={MateriaisDoados}/>
                 <Route path="/sucessodoacao" component={SucessoDoacao}/>
                 <Route path="/alunos/" component={Alunos}/>
             </Switch>

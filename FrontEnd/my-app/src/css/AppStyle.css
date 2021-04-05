@@ -53,13 +53,19 @@ body {
     border-radius: 5px;
     padding: 0.7em;
 }
+.botao-doacao{
+	background-color: #f27141;
+    color: #ffffff;
+	position: relative;
+	max-width: 118;
+}
 .botao-enviar {
     background-color: #f27141;
     color: #ffffff;
 }
 .botao-enviar:hover {
     background-color: #E4511B;
-    color: #f6f6f6;
+    color: #212529;
 }
 
 /*NAVBAR*/
@@ -69,6 +75,12 @@ body {
 .botao-login {
     color: #f27141;
     border: 1px solid #f27141;
+}
+.botao-login:hover {
+	text-decoration: none;
+}
+.texto-login {
+	color: #f27141;
 }
 .top-area{
     background-image: linear-gradient(rgb(221, 218, 224),rgb(235, 235, 235),rgb(244, 244, 245),aliceblue);
@@ -85,6 +97,7 @@ body {
     color: #ffffff;
     padding: 1em;
 }
+
 
 /*HOME PAGE*/
 .secao-home {
@@ -110,10 +123,7 @@ body {
 .botao.busca.escola{
     padding: 2rem;
 }
-/*CARDS ESCOLAS*/
-.imagem-card-escola {
-    width: 25%;
-}
+
 /*FORMULÁRIOS DE CADASTRO*/
 .avatar-aluno {
 	width: 10em;
@@ -208,22 +218,11 @@ label {
 	padding-top: 2vh;
 	min-width: 240px;
 }
+.imagem-card-escola {
+    width: 25%;
+}
 
 /*CARDS ALUNOS*/
-.lista-material-aluno{
-    overflow-x: hidden;
-    overflow-y: auto;
-    max-height: 20vh;
-}
-/*.botao-doacao{
-	position: relative;
-	max-width: 118;
-}
-.btn.btn-warning{
-	background-color: #F27141;
-	border-color: unset;
-	color: white;
-}*/
 .col.cartaoaluno.botao{
 	display: flex;
 	justify-content: flex-end;
