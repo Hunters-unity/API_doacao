@@ -57,8 +57,7 @@ function Navegacao(props) {
                             </DropdownMenu>
                         </UncontrolledDropdown>
                     </Nav>
-
-                    <NavbarText className="botao botao-login"><Link to='/Login'>Login</Link></NavbarText>
+                    <button className="botao botao-login"><Link to='/Login' className="texto-login">Login</Link></button>                    
                 </Collapse>
             </Navbar>
             <div>

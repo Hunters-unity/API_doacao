@@ -76,6 +76,12 @@ body {
     color: #f27141;
     border: 1px solid #f27141;
 }
+.botao-login:hover {
+	text-decoration: none;
+}
+.texto-login {
+	color: #f27141;
+}
 .top-area{
     background-image: linear-gradient(rgb(221, 218, 224),rgb(235, 235, 235),rgb(244, 244, 245),aliceblue);
     display: flex;

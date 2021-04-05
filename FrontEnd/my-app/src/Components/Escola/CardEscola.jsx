@@ -64,7 +64,7 @@ class CardEscola extends Component {
                         </div>
                         <div className="col cartaoescola botao">
                             
-                                <button className="btn btn-warning">Ver alunos</button>
+                                <button className="btn botao botao-doacao">Ver alunos</button>
                            
                         </div>
 
