@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import '../../css/AppStyle.css';
 import axios from 'axios'
-import avatar from '../Imagens/corredor-escola.jpg'
+import avatar from '../Imagens/escola-1.jpg'
 import schoolIcon from '../Imagens/schoolIcon.png'
 import { Link } from "react-router-dom";
 
