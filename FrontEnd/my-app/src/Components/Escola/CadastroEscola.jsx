@@ -29,18 +29,6 @@ class CadastroEscola extends Component {
         this.setState({ telefone: telefoneNumero })
     }
 
-    mascaraCel(event) {
-        var celular = event.target.value;
-        if (celular.length === 1) {
-            event.target.value = '(' + celular;
-        }
-        else if (celular.length === 3) {
-            event.target.value = celular + ')';
-        }
-        else if (celular.length === 9) {
-            event.target.value = celular + '-';
-        }
-    }
     //coloca cep no padrão  xxxxx-xxx
     mascaraCep(event) {
         var cep = event.target.value;
@@ -97,19 +85,11 @@ class CadastroEscola extends Component {
     render() {
         return (
             <div className="corpo">
-                <div className="card">
-                    <img src={imagemEscola} className="card-img-top imagem-card-escola" alt="Imagem da Escola" />
-                    <div className="card-body">
-                        <h5 className="card-title">Escola Djalma</h5>
-                        <p className="card-text" id="quantidade-alunos-escola">40 Alunos Cadastrados</p>
-                        <p>Progresso da Doação</p>
-                        <div className="progress">
-                            <div className="progress-bar bg-success" role="progressbar" aria-valuenow={25} aria-valuemin={0} aria-valuemax={100}>
-                            </div>
-                        </div>
-                        <a className="btn btn-warning">Ver Perfil</a>
-                    </div>
+                <div class="card-cadastro-escola">
+                    <img src={imagemEscola} class="imagem-cadastro-escola" alt="Imagem da Escola" />
+                    <h3 className="titulo-3">Cadastre sua Escola</h3>
                 </div>
+
                 <div className="container">
 
                     <form onSubmit={(event) => {
@@ -134,15 +114,15 @@ class CadastroEscola extends Component {
                                 <div className="col-sm">
                                     <label htmlFor="telefone"><b>Telefone: </b></label>
                                     <input className="form-control" type="text" id="telefone" onKeyPress={this.mascaraTelefone.bind(this)} maxLength="13" />
-                                </div>                               
+                                </div>
                             </div>
                             <div className="form-row">
                                 <label htmlFor="email"><strong>E-mail:</strong></label>
                                 <input className="form-control" type="email" id="email" required />
                             </div>
-                            <div className="form-row">
+                            <div className="form-row checkbox-email">
                                 <label className="form-check-label" htmlFor="mensagem-email"><input className="form-check-input" type="checkbox" id="mensagem-email" /><b>Permitir o envio de mensagens via e-mail?</b></label>
-                            </div>                            
+                            </div>
                         </fieldset>
                         <hr />
 
@@ -183,13 +163,7 @@ class CadastroEscola extends Component {
                                     <input className="form-control" type="text" name="bairro" id="bairro" required readOnly />
                                 </div>
                             </div>
-                        </fieldset>              
-                            
-                            
-                            
-
-                       
-
+                        </fieldset>
                         <button className="btn botao botao-enviar " type="submit" >Enviar</button>
                     </form>
                 </div>

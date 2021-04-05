@@ -6,6 +6,10 @@ body {
 .corpo{
     padding: 2em;
 }
+.imagem-erro {
+	display: block;
+	margin: 5% auto;
+}
 .titulo-1 {
     font-size: 3em;
     font-weight: bold;
@@ -27,10 +31,16 @@ body {
 }
 .titulo-5{
     font-size: 1.2em;
+	margin: 1em;
 }
+
+/*BOTÕES GERAIS*/
 .botao {
     border-radius: 5px;
     padding: 0.7em;
+}
+.botao:hover{
+	padding: 1em;
 }
 .botao-enviar {
     background-color: #f27141;
@@ -39,29 +49,7 @@ body {
 .botao-enviar:hover {
     background-color: #E4511B;
     color: #f6f6f6;
-    padding: 1em;
 }
-
-label {
-	margin-top: 1em;
-}
-.checkitem{
-	margin-right: 1vw;
-}
-.formulario-doacao{
-	margin: 0 22%;
-}
-.form-login{
-	display: grid;
-	width: 50%;
-	min-width: 250px;
-	margin-left: auto;
-	margin-right: auto;
-}
-.avatar-aluno {
-	width: 10em;
-}
-
 
 /*NAVBAR*/
 .botao-cadastre-se {
@@ -115,6 +103,59 @@ label {
 .imagem-card-escola {
     width: 25%;
 }
+/*FORMULÁRIOS DE CADASTRO*/
+.avatar-aluno {
+	width: 10em;
+}
+.botao-adicionar {
+	border: 1px solid #5503a6;
+	color: #5503a6;
+	padding: 0.7em;
+}
+.card-cadastro-escola, .imagem-cadastro-escola, .card-cadastro-aluno, .imagem-cadastro-aluno {
+	width: 25rem;
+	margin: auto;
+}
+.checkbox-email {
+	margin-left: 1em;
+}
+.checkitem{
+	margin-right: 1vw;
+}
+.checkbox-lista {
+	margin-right: 0.5em;
+}
+.container-lista {
+	border: 1px solid #5503a6;
+	border-radius: 10px;
+	padding: 1em;
+	margin-bottom: 1.2em;
+}
+.form-endereco {
+	margin-bottom: 1.5em;
+}
+.form-login{
+	display: grid;
+	width: 50%;
+	min-width: 250px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.formulario-doacao{
+	margin: 0 22%;
+}
+label {
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+}
+.titulo-form {
+	color: #5503a6;
+	font-weight: bold;
+	margin-left: 0;
+	margin-bottom: 0;
+}
+
+/*CARDS ESCOLAS*/
 .container.cartaoescola{
 	min-width: 300px;
 	max-width: 90vw;
@@ -239,7 +280,7 @@ label {
 	padding-left: 10%;
 }
 
-/*FOOTER*/
+/*FOOTER LANDING PAGE*/
 .rodape-menu {
 height: 5em;
 }
