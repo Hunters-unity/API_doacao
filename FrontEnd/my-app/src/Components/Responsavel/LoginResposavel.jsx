@@ -12,7 +12,9 @@ class LoginResponsavel extends Component {
 
     render() {
         if (this.state.redirect) {
-            return <Redirect to="/" />
+            return <Redirect to={{
+                pathname: "/cadastroaluno/",
+                search: this.state.perfil}}/>
         }
         return (
             <div className='corpo'>
@@ -26,7 +28,6 @@ class LoginResponsavel extends Component {
                                 }
                                 else {
                                     this.setState({ redirect: true, perfil: res.data.id })
-                                    console.log(this.state)
                                 }
                             }).catch(err => console.log(err));
                             event.preventDefault()

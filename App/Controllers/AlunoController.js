@@ -1,33 +1,48 @@
 const Aluno = require('../Models/Aluno')
+const Lista = require('../Models/ListaDoacao')
+const ItemDoacao = require('../Models/ItemDoacao')
+
 
 const AlunoController = {
     cadastrar: async (req, res) => {
         try {
-            const { nome, ano_letivo, escola, estado, data, responsavel } = req.body;
-            if (nome !== undefined, escola !== undefined && responsavel !== undefined) {
+            const { escola, nome, ano_letivo, listaDoacao, responsavel } = req.body
+            const itens = []
 
-                await Aluno.create({ nome, ano_letivo, escola, estado, data, responsavel })
-                    .then(aluno => {
-                        return res.status(201).send({ aluno })
-                    })
-                    .catch(error => {
-                        return res.status(400).send({ erro: error.message })
-                    })
-            } else {
-                return res.status(400).send({ erro: "Erro ao cadastrar aluno" });
+
+            await Promise.all(listaDoacao.map(async item => {
+                const novoItem = await ItemDoacao.create({ item })
+                itens.push(novoItem._id)
+            }))
+            const novaLista = await Lista.create({ itens })
+            const lista = novaLista._id
+            try {
+                const aluno = await Aluno.create({ escola, nome, ano_letivo, lista, responsavel })
+                return res.status(201).send(aluno)
+            } catch (error) {
+                return res.status(400).send({ erro: error.message })
+
             }
         } catch (error) {
-            return res.status(400).send({ erro: error.message });
+            return res.status(400).send({ erro: error.message })
+
         }
     },
     listar: async (req, res) => {
         try {
-            const alunos = await Aluno.find().limit(5);
+            if (req.query.limit !== undefined) {
+                const alunos = await Aluno.find().limit(parseInt(req.query.limit)).sort({ dataAdicao: -1 });;
+                return res.status(200).send({ alunos });
+            }
+            else {
+                const alunos = await Aluno.find().sort({ dataAdicao: -1 });
+                return res.status(200).send({ alunos });
+            }
 
 
-            return res.status(200).send({ alunos });
 
         } catch (error) {
+            return res.status(400).send({ erro: error })
 
         }
     },

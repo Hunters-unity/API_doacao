@@ -8,7 +8,6 @@ import Home from './Components/Home/Home'
 import PaginaErro from './Components/Nav/PaginaErro'
 import NavBar from './Components/Nav/Nav'
 import LoginResponsavel from './Components/Responsavel/LoginResposavel'
-import CardEscola from './Components/Escola/CardEscola'
 import Escolas from './Components/Escola/Escolas'
 
 

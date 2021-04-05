@@ -2,21 +2,25 @@ import React, { Component } from "react";
 import '../../css/AppStyle.css'
 import avatar from "../Imagens/avatar/Avatar-7.png";
 import axios from 'axios'
+import { Link, Redirect } from "react-router-dom";
 
 class CadastroAluno extends Component {
 	constructor() {
 		super();
-		this.state = { cidade: [""], escola: [""], aluno: { escola: "", nome: "", ano_letivo: "", lista: [], responsavel: "" } }
+		this.state = {
+			cidade: [""],
+			escola: { id: [""], nome: [""] },
+			aluno: { escola: "", nome: "", ano_letivo: "1o. ano - Fundamental", listaDoacao: [], responsavel: "" },
+			redirect: false
+		}
 	}
 	getCidade(event) {
 		var estado = event.target.value;
 		var cidades = ["Selecione"];
 		axios.get('http://localhost:3001/escolas/listar/?estado=' + estado).then(async response => {
-			console.log(response.data)
 			await response.data.escolas.map((element) => {
 				if (cidades.indexOf(element.cidade) === -1) {
 					cidades.push(element.cidade);
-					console.log(cidades.indexOf(element));
 				}
 			}
 			)
@@ -26,22 +30,25 @@ class CadastroAluno extends Component {
 	getEscola(event) {
 		var cidade = event.target.value;
 		var escolas = ["Selecione"];
+		var ids = [];
 		axios.get('http://localhost:3001/escolas/listar/?cidade=' + cidade).then(async response => {
-			await response.data.escolas.map((element) =>
+			await response.data.escolas.map((element) => {
 				escolas.push(element.nome)
-			)
-			this.setState({ escola: escolas })
-		})
+				ids.push(element._id)
+			})
+			this.setState({ escola: { nome: escolas, id: ids } })
+		}).catch(err => console.log(err))
 	}
 	handlerAddItem(evento) {
 		var receber = evento.target.checked;
-		var atualizaLista = this.state.aluno.lista;
+		var atualizaLista = this.state.aluno.listaDoacao;
 		if (receber) {
 			atualizaLista.push(evento.target.name)
 		} else {
-			atualizaLista = this.removeItemOnce(this.state.aluno.lista, evento.target.name)
+			atualizaLista = this.removeItemOnce(this.state.aluno.listaDoacao, evento.target.name)
 		}
-		this.setState({ aluno: { ...this.state.aluno, lista: atualizaLista } })
+		this.setState({ aluno: { ...this.state.aluno, listaDoacao: atualizaLista } })
+		console.log(this.state.aluno)
 	}
 	removeItemOnce(arr, value) {
 		var index = arr.indexOf(value);
@@ -50,8 +57,30 @@ class CadastroAluno extends Component {
 		}
 		return arr;
 	}
+	async componentDidMount() {
+		//pseudo login
+		try {
+			if (String(this.props.location.search).length > 0) {
+				var responsavelID = String(this.props.location.search).substr(1)
+				await this.setState({ aluno: { ...this.state.aluno, responsavel: responsavelID } })
+				console.log(this.state.aluno.responsavel)
+			}
+			else {
+				this.setState({ redirect: true })
+			}
+		} catch (error) {
+			console.log(error)
+			this.setState({ redirect: true })
+		}
+	}
+
 	render() {
+		if (this.state.redirect) {
+			return (<Redirect to='/home' />)
+		}
+
 		return (
+
 
 
 			<div className="corpo">
@@ -60,7 +89,7 @@ class CadastroAluno extends Component {
 					<h5 className="titulo-5 text-center">Selecione o avatar do aluno</h5>
 					<h3 className="titulo-3">Cadastre os Alunos</h3>
 				</div>
-				
+
 				<div className="container">
 					<button className="botao btn botao-adicionar">Adicionar Aluno</button>
 					<h5 className="titulo-5 titulo-form">Dados do Aluno</h5>
@@ -113,8 +142,12 @@ class CadastroAluno extends Component {
 							</div>
 							<div className="form-row">
 								<label htmlFor="nome-escola"><strong>Nome da sua Escola</strong></label>
-								<select className="form-control" id="nome-escola" required onChange={event => { this.setState({ aluno: { ...this.state.aluno, escola: event.target.value } }) }}>
-									{this.state.escola.map((categoria) => {
+								<select className="form-control" id="nome-escola" required onChange={event => {
+									var index = this.state.escola.nome.indexOf(event.target.value)
+									console.log(event.target.value + " " + index)
+									this.setState({ aluno: { ...this.state.aluno, escola: this.state.escola.id[index - 1] } })
+								}}>
+									{this.state.escola.nome.map((categoria) => {
 										return (
 											<option>
 												{categoria}
@@ -126,9 +159,9 @@ class CadastroAluno extends Component {
 							<div className="form-row">
 								<label htmlFor="nome-aluno"><b>Nome do Aluno</b></label>
 								<input className="form-control" type="text" name="nome-aluno" id="nome-aluno" placeholder="Digite seu nome completo"
-									required onChange={async event => await this.setState({ aluno: { ...this.state.aluno, nome: event.target.value } })} />
+									required onChange={event => this.setState({ aluno: { ...this.state.aluno, nome: event.target.value } })} />
 								<label htmlFor="ano-escolar"><b>Ano escolar</b></label>
-								<select className="form-control" name="ano-escolar" id="ano-escolar" required onChange={async event => await this.setState({ aluno: { ...this.state.aluno, ano_letivo: event.target.value } })}>
+								<select className="form-control" name="ano-escolar" id="ano-escolar" required onChange={event => this.setState({ aluno: { ...this.state.aluno, ano_letivo: event.target.value } })}>
 									<option>1o. ano - Fundamental</option>
 									<option>2o. ano - Fundamental</option>
 									<option>3o. ano - Fundamental</option>
@@ -146,12 +179,12 @@ class CadastroAluno extends Component {
 						</fieldset>
 					</form>
 					<hr />
-					<form id="form-inclui-materiais"
-						onSubmit={(event) => {
-							console.log(this.state)
-							//axios.post('http://localhost:3001/aluno/cadastrar', this.state);
-							event.preventDefault()
-						}}>
+					<form id="form-inclui-materiais" onSubmit={async (event) => {
+						await axios.post('http://localhost:3001/aluno/cadastrar', this.state.aluno);
+						console.log("cadastro")
+						event.preventDefault()
+						this.setState({redirect: true})
+					}}>
 						<div className="container pl-0">
 							<h2 className="titulo-3 ml-0">Lista de Materiais</h2>
 							<p className="titulo-5 ml-0">Selecione os materiais que gostaria de receber como doação.<br />Lembre-se de solicitar somente o que realmente precisa, para que todos possam receber auxílio!</p>
@@ -168,8 +201,8 @@ class CadastroAluno extends Component {
 										<p><label><input className="checkbox-lista" type="checkbox" name="Estojo" />Estojo</label></p>
 										<p><label><input className="checkbox-lista" type="checkbox" name="Hidrocor" /></label>Hidrocor</p>
 										<p><label><input className="checkbox-lista" type="checkbox" name="Lápis" />Lápis</label></p>
-										<p><label><input className="checkbox-lista" type="checkbox" name="" />Lápis de Cor</label>Lápis de Cor</p>
-										<p><label><input className="checkbox-lista" type="checkbox" name="" />Marcador de Texto</label>Marcador de Texto</p>
+										<p><label><input className="checkbox-lista" type="checkbox" name="Lápis de Cor" />Lápis de Cor</label></p>
+										<p><label><input className="checkbox-lista" type="checkbox" name="Marcador de Texto" />Marcador de Texto</label></p>
 										<p><label><input className="checkbox-lista" type="checkbox" name="Mochila" />Mochila</label></p>
 										<p><label><input className="checkbox-lista" type="checkbox" name="Régua" />Régua</label></p>
 										<p><label><input className="checkbox-lista" type="checkbox" name="Tesoura sem ponta" />Tesoura sem ponta</label></p>
@@ -187,8 +220,10 @@ class CadastroAluno extends Component {
 								</div>
 							</div>
 						</div>
-						<a href="cadastro-responsavel.html"><button className="botao btn btn-secondary" type="button" >Voltar</button></a>
-						<button className="botao btn botao-enviar ml-3" type="submit">Avançar</button>
+						<Link to='/home'>
+							<button className="botao btn btn-secondary" type="button" >Voltar</button>
+						</Link>
+						<button className="botao btn botao-enviar ml-3" type="submit" >Avançar</button>
 					</form>
 				</div>
 			</div>
