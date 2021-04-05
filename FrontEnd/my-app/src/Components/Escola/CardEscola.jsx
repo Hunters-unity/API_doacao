@@ -41,7 +41,6 @@ class CardEscola extends Component {
 
     render() {
         return (
-            <div className="corpo">
                 <div className="container cartaoescola">
                     <div className="row cartaoescola">
                         <div className="col cartaoescola">
@@ -64,14 +63,13 @@ class CardEscola extends Component {
                             </div>
                         </div>
                         <div className="col cartaoescola botao">
-                            <Link to='/'>
+                            
                                 <button className="btn btn-warning">Ver alunos</button>
-                            </Link>
+                           
                         </div>
 
                     </div>
                 </div>
-            </div>
         )
     }
 }

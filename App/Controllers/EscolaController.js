@@ -22,11 +22,36 @@ const EscolaController = {
     },
 
     listar: async (req, res) => {
+        var match = {};
+        var limit = ""
+
         try {
-            const escolas = await Escola.find().limit(5);
+            Object.keys(req.query).map(function (key, index) {
+                if (key !== "limit") {
+                    match[key] = req.query[key]
+                }
+            });
+            if (req.query.limit !== undefined) {
+                if (req.query.nome !== undefined) {
+                    const escolas = await Escola.find({nome: {$regex: match.nome}}).limit(parseInt(req.query.limit));
+                    return res.status(200).send({ escolas });   
+                }
+                const escolas = await Escola.find(match).limit(parseInt(req.query.limit));
+                return res.status(200).send({ escolas });
 
+            }
+            if (req.query.nome !== undefined) {
+                console.log(match.nome)
+                const escolas = await Escola.find({nome: {$regex: match.nome}});
+                return res.status(200).send({ escolas });
 
-            return res.status(200).send({ escolas });
+            }
+            else {
+                const escolas = await Escola.find(match);
+                return res.status(200).send({ escolas });
+
+            }
+
         } catch (error) {
             return res.status(400).send({ erro: error.message });
         }
@@ -42,32 +67,6 @@ const EscolaController = {
                 res.status(400).send({ erro: "Escola não encontrada" });
             }
         } catch (error) {
-            return res.status(400).send({ erro: error.message });
-        }
-    },
-    listarPorCidade: async (req, res) => {
-        try {
-            const escola = await Escola.distinct("nome", { cidade: req.params.id })
-            if (escola !== null) {
-                res.status(200).send(escola)
-            }
-            else {
-                return res.status(400).send({ erro: "nenhuma escola encontrada" })
-            }
-        } catch {
-            return res.status(400).send({ erro: error.message });
-        }
-    },
-    listarPorEstado: async (req, res) => {
-        try {
-            const escola = await Escola.distinct("cidade", { estado: req.params.id })
-            if (escola !== null) {
-                res.status(200).send(escola)
-            }
-            else {
-                return res.status(400).send({ erro: "nenhuma escola encontrada" })
-            }
-        } catch {
             return res.status(400).send({ erro: error.message });
         }
     },

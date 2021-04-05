@@ -7,7 +7,7 @@ import { Redirect } from "react-router";
 class LoginResponsavel extends Component {
     constructor() {
         super();
-        this.state = { email: "", senha: "", redirect: false }
+        this.state = { email: "", senha: "", perfil:"", redirect: false }
     }
 
     render() {
@@ -25,7 +25,8 @@ class LoginResponsavel extends Component {
                                     alert("email ou senha inválidos")
                                 }
                                 else {
-                                    this.setState({ redirect: true })
+                                    this.setState({ redirect: true, perfil: res.data.id })
+                                    console.log(this.state)
                                 }
                             }).catch(err => console.log(err));
                             event.preventDefault()
