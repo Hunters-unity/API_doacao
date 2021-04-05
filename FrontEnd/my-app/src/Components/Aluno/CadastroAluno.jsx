@@ -11,9 +11,14 @@ class CadastroAluno extends Component {
 	getCidade(event) {
 		var estado = event.target.value;
 		var cidades = ["Selecione"];
-		axios.get('http://localhost:3001/escolas/listarPorEstado/' + estado).then(async response => {
-			await response.data.map((element) =>
-				cidades.push(element)
+		axios.get('http://localhost:3001/escolas/listar/?estado=' + estado).then(async response => {
+			console.log(response.data)
+			await response.data.escolas.map((element) => {
+				if (cidades.indexOf(element.cidade) === -1) {
+					cidades.push(element.cidade);
+					console.log(cidades.indexOf(element));
+				}
+			}
 			)
 			this.setState({ cidade: cidades })
 		}).catch(err => console.log(err))
@@ -21,9 +26,9 @@ class CadastroAluno extends Component {
 	getEscola(event) {
 		var cidade = event.target.value;
 		var escolas = ["Selecione"];
-		axios.get('http://localhost:3001/escolas/listarPorCidade/' + cidade).then(async response => {
-			await response.data.map((element) =>
-				escolas.push(element)
+		axios.get('http://localhost:3001/escolas/listar/?cidade=' + cidade).then(async response => {
+			await response.data.escolas.map((element) =>
+				escolas.push(element.nome)
 			)
 			this.setState({ escola: escolas })
 		})

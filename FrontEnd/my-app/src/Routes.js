@@ -9,6 +9,7 @@ import PaginaErro from './Components/Nav/PaginaErro'
 import NavBar from './Components/Nav/Nav'
 import LoginResponsavel from './Components/Responsavel/LoginResposavel'
 import CardEscola from './Components/Escola/CardEscola'
+import Escolas from './Components/Escola/Escolas'
 
 
 function Rotas() {
@@ -23,7 +24,7 @@ function Rotas() {
                 <Route path="/home" component={Home} />
                 <Route path="/" exact component={Landing}/>
                 <Route path="/login" component={LoginResponsavel}/>
-                <Route path="/escolas" component={CardEscola}/>
+                <Route path="/escolas/" component={Escolas}/>
                 <Route path="/paginaerro" component={PaginaErro}/>
             </Switch>
         </Router>
