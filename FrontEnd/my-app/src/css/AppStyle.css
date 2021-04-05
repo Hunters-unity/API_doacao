@@ -105,6 +105,7 @@ body {
 }
 .checkbox-lista {
 	margin-right: 0.5em;
+	margin-left: 0.5em;
 }
 .container-lista {
 	border: 1px solid #5503a6;
@@ -123,7 +124,7 @@ body {
 	margin-right: auto;
 }
 .formulario-doacao{
-	margin: 0 22%;
+	margin: 0 8%;
 }
 label {
 	margin-top: 1em;
