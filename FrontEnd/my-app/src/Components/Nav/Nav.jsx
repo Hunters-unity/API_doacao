@@ -32,16 +32,16 @@ function Navegacao(props) {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem>
-                            <NavLink><Link to='/home'>Início</Link></NavLink>
+                            <NavLink><Link to='/Home'>Página Inicial</Link></NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink>Como Doar</NavLink>
+                            <NavLink><Link to='/PaginaErro'>Como Doar</Link></NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink href=""><Link to='/Escolas'>Escolas</Link></NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="">Contato</NavLink>
+                            <NavLink href=""><Link to='/PaginaErro'>Contato</Link></NavLink>
                         </NavItem>
                         <UncontrolledDropdown nav inNavbar>
                             <DropdownToggle nav caret>
