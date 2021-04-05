@@ -25,7 +25,7 @@ class Landing extends Component {
     }
   }
   async componentDidMount() {
-    await axios.get('http://localhost:3001/aluno/listar').then(response => {
+    await axios.get('http://localhost:3001/aluno/listar/?limit=5').then(response => {
       if (response.data.alunos !== undefined) {
         var listaTemp = [];
         response.data.alunos.map(element => {
