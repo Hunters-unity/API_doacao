@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./StyleResponsavel.css";
+import '../../css/AppStyle.css';
 import axios from 'axios'
 import { Redirect } from "react-router";
 

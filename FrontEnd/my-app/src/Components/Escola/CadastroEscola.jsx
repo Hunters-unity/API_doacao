@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import "./StyleEscola.css";
+import '../../css/AppStyle.css';
 import axios from "axios"
+import imagemEscola from '../Imagens/escola-1.jpg'
 
 class CadastroEscola extends Component {
     constructor() {
@@ -95,112 +96,103 @@ class CadastroEscola extends Component {
     render() {
         return (
             <div className="corpo">
-
-                <div className="moldura">
-                    <header >
-                        <h1>Cadastre sua Escola!</h1>
-                        <p>É simples, rápido e GRÁTIS!</p>
-                    </header>
-
-                    <div className="container">
-                        <h2 className="titulo-formulario">Informações Principais da Escola</h2>
-                        <h5 className="subtitulo-formulario">Passo 2 - 4</h5>
-                        <form onSubmit={(event) => {
-                            console.log(this.state)
-                            axios.post('http://localhost:3001/escolas/cadastrar', this.state).then((response) => console.log(response)).catch((erro) => console.log(erro))
-                            event.preventDefault()
-                        }}>
-                            <fieldset className="informacoes-escola">
-                                <div className="form-row">
-                                    <label htmlFor="diretoria-ensino"><b>Diretoria de Ensino</b></label>
-                                    <input className="form-control" type="text" name="diretoria-ensino" id="diretoria-ensino" autoFocus />
-                                </div>
-                                <div className="form-row">
-                                    <div className="col-sm">
-                                        <label htmlFor="rede-ensino"><strong>Rede de Ensino</strong></label>
-                                        <select className="form-control" id="rede-ensino" required onChange={(evento) => this.setState({ tipo: evento.target.value })}>
-                                            <option defaultValue disabled value="">Selecione</option>
-                                            <option>Estadual</option>
-                                            <option>Municipal</option>
-                                        </select>
-                                    </div>
-                                    <div className="col-sm">
-                                        <label htmlFor="total-alunos"><strong>Número total de alunos</strong></label>
-                                        <input className="form-control" type="text" name="total-alunos" id="total-alunos" />
-                                    </div>
-                                </div>
-
-                                <div className="form-row">
-                                    <label htmlFor="nome-escola"><strong>Nome da Escola</strong></label>
-                                    <input className="form-control" type="text" name="nome-escola" id="nome-escola" placeholder="Nome completo da escola" onChange={(event) => this.setState({ nome: event.target.value })} required />
-                                </div>
-                            </fieldset>
-                            <hr />
-
-                            <fieldset className="form-endereco">
-                                <div className="form-row">
-                                    <div className="col-sm">
-                                        <label htmlFor="cep"><b>CEP</b></label>
-                                        <input className="form-control" type="text" name="cep" id="cep" onBlur={this.pesquisaCep.bind(this)} onKeyPress={this.mascaraCep.bind(this)} maxLength="9" required />
-                                    </div>
-
-                                    <div className="col-sm">
-                                        <label htmlFor="estado"><strong>Estado</strong></label>
-                                        <input className="form-control" type="text" name="estado" id="estado" required readOnly />
-                                    </div>
-
-                                    <div className="col-sm">
-                                        <label htmlFor="cidade"><strong>Cidade</strong></label>
-                                        <input className="form-control" type="text" name="cidade" id="cidade" required readOnly />
-                                    </div>
-                                </div>
-                                <div className="form-row">
-                                    <label htmlFor="endereco"><strong>Endereço</strong></label>
-                                    <input className="form-control" type="text" name="endereco" id="endereco" required readOnly />
-                                </div>
-                                <div className="form-row">
-                                    <div className="col-sm-2">
-                                        <label htmlFor="numero-endereco"><b>Numero</b></label>
-                                        <input className="form-control" type="text" name="numero-endereco" id="numero-endereco" required onChange={(evento) => this.setState({ numero: evento.target.value })} />
-                                    </div>
-
-                                    <div className="col-sm">
-                                        <label htmlFor="complemento-endereco"><b>Complemento</b></label>
-                                        <input className="form-control" type="text" name="complemento-endereco" id="complemento-endereco" />
-                                    </div>
-
-                                    <div className="col-sm">
-                                        <label htmlFor="bairro"><strong>Bairro</strong></label>
-                                        <input className="form-control" type="text" name="bairro" id="bairro" required readOnly />
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <hr />
-                            <fieldset className="form-contato">
-                                <div className="form-row">
-                                    <label htmlFor="email"><strong>E-mail:</strong></label>
-                                    <input className="form-control" type="email" id="email" required />
-                                </div>
-                                <div className="form-row">
-                                    <div className="col-sm">
-                                        <label htmlFor="telefone"><b>Telefone: </b></label>
-                                        <input className="form-control" type="text" id="telefone" onKeyPress={this.mascaraTelefone.bind(this)} maxLength="13" />
-                                    </div>
-                                    <div className="col-sm">
-                                        <label htmlFor="cel"><b>WhatsApp:</b></label>
-                                        <input className="form-control" type="text" id="cel" onKeyPress={this.mascaraCel.bind(this)} maxLength="14" />
-                                    </div>
-                                </div>
-                                <div className="form-row float-right">
-                                    <label className="form-check-label" htmlFor="mensagem-whatsapp"><input className="form-check-input" type="checkbox" id="mensagem-whatsapp" /><b>Permitir o envio de mensagens via WhatsApp?</b></label>
-                                </div>
-
-                            </fieldset>
-
-                            <button className="botao btn btn-primary " type="submit" >Enviar</button>
-                        </form>
+                <div className="card">
+                    <img src={imagemEscola} className="card-img-top imagem-card-escola" alt="Imagem da Escola" />
+                    <div className="card-body">
+                        <h5 className="card-title">Escola Djalma</h5>
+                        <p className="card-text" id="quantidade-alunos-escola">40 Alunos Cadastrados</p>
+                        <p>Progresso da Doação</p>
+                        <div className="progress">
+                            <div className="progress-bar bg-success" role="progressbar" aria-valuenow={25} aria-valuemin={0} aria-valuemax={100}>
+                            </div>
+                        </div>
+                        <a className="btn btn-warning">Ver Perfil</a>
                     </div>
                 </div>
+                <div className="container">
+
+                    <form onSubmit={(event) => {
+                        console.log(this.state)
+                        axios.post('http://localhost:3001/escolas/cadastrar', this.state).then((response) => console.log(response)).catch((erro) => console.log(erro))
+                        event.preventDefault()
+                    }}>
+                        <fieldset className="informacoes-escola">
+                            <div className="form-row">
+                                <label htmlFor="nome-escola"><strong>Nome da Escola</strong></label>
+                                <input className="form-control" type="text" name="nome-escola" id="nome-escola" autoFocus placeholder="Nome completo da escola" onChange={(event) => this.setState({ nome: event.target.value })} required />
+                            </div>
+                            <div className="form-row">
+                                <div className="col-sm">
+                                    <label htmlFor="rede-ensino"><strong>Rede de Ensino</strong></label>
+                                    <select className="form-control" id="rede-ensino" required onChange={(evento) => this.setState({ tipo: evento.target.value })}>
+                                        <option defaultValue disabled value="">Selecione</option>
+                                        <option>Estadual</option>
+                                        <option>Municipal</option>
+                                    </select>
+                                </div>
+                                <div className="col-sm">
+                                    <label htmlFor="telefone"><b>Telefone: </b></label>
+                                    <input className="form-control" type="text" id="telefone" onKeyPress={this.mascaraTelefone.bind(this)} maxLength="13" />
+                                </div>                               
+                            </div>
+                            <div className="form-row">
+                                <label htmlFor="email"><strong>E-mail:</strong></label>
+                                <input className="form-control" type="email" id="email" required />
+                            </div>
+                            <div className="form-row">
+                                <label className="form-check-label" htmlFor="mensagem-email"><input className="form-check-input" type="checkbox" id="mensagem-email" /><b>Permitir o envio de mensagens via e-mail?</b></label>
+                            </div>                            
+                        </fieldset>
+                        <hr />
+
+                        <fieldset className="form-endereco">
+                            <div className="form-row">
+                                <div className="col-sm">
+                                    <label htmlFor="cep"><b>CEP</b></label>
+                                    <input className="form-control" type="text" name="cep" id="cep" onBlur={this.pesquisaCep.bind(this)} onKeyPress={this.mascaraCep.bind(this)} maxLength="9" required />
+                                </div>
+
+                                <div className="col-sm">
+                                    <label htmlFor="estado"><strong>Estado</strong></label>
+                                    <input className="form-control" type="text" name="estado" id="estado" required readOnly />
+                                </div>
+
+                                <div className="col-sm">
+                                    <label htmlFor="cidade"><strong>Cidade</strong></label>
+                                    <input className="form-control" type="text" name="cidade" id="cidade" required readOnly />
+                                </div>
+                            </div>
+                            <div className="form-row">
+                                <label htmlFor="endereco"><strong>Endereço</strong></label>
+                                <input className="form-control" type="text" name="endereco" id="endereco" required readOnly />
+                            </div>
+                            <div className="form-row">
+                                <div className="col-sm-2">
+                                    <label htmlFor="numero-endereco"><b>Numero</b></label>
+                                    <input className="form-control" type="text" name="numero-endereco" id="numero-endereco" required onChange={(evento) => this.setState({ numero: evento.target.value })} />
+                                </div>
+
+                                <div className="col-sm">
+                                    <label htmlFor="complemento-endereco"><b>Complemento</b></label>
+                                    <input className="form-control" type="text" name="complemento-endereco" id="complemento-endereco" />
+                                </div>
+
+                                <div className="col-sm">
+                                    <label htmlFor="bairro"><strong>Bairro</strong></label>
+                                    <input className="form-control" type="text" name="bairro" id="bairro" required readOnly />
+                                </div>
+                            </div>
+                        </fieldset>              
+                            
+                            
+                            
+
+                       
+
+                        <button className="btn botao botao-enviar " type="submit" >Enviar</button>
+                    </form>
+                </div>
+
             </div>
         )
     }

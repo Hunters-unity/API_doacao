@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./StyleAluno.css";
 import '../../css/AppStyle.css'
 import avatar from "./avatar-crianca.png";
 import axios from 'axios'

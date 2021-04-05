@@ -1,3 +1,4 @@
+/*ESTILO GERAL*/
 body {
     background-color: #f6f6f6;
 	font-family: 'Poppins', sans-serif;
@@ -27,12 +28,42 @@ body {
 .titulo-5{
     font-size: 1.2em;
 }
-
-/*NAVBAR*/
 .botao {
     border-radius: 5px;
+    padding: 0.7em;
+}
+.botao-enviar {
+    background-color: #f27141;
+    color: #ffffff;
+}
+.botao-enviar:hover {
+    background-color: #E4511B;
+    color: #f6f6f6;
     padding: 1em;
 }
+
+label {
+	margin-top: 1em;
+}
+.checkitem{
+	margin-right: 1vw;
+}
+.formulario-doacao{
+	margin: 0 22%;
+}
+.form-login{
+	display: grid;
+	width: 50%;
+	min-width: 250px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.avatar-aluno {
+	width: 10em;
+}
+
+
+/*NAVBAR*/
 .botao-cadastre-se {
     border: 1px solid;
 }
@@ -45,6 +76,7 @@ body {
     display: flex;
     min-height:3vh;
 }
+
 /*LANDING PAGE*/
 .secao-landing {
     margin: 5em 0;
@@ -59,8 +91,55 @@ body {
 .secao-home {
     margin: 5em 0;
 }
+.botao-pesquisa {
+    color: #f27141;
+    border: 1px solid #f27141;
+}
 
-
+/*CARDS ESCOLAS*/
+.imagem-card-escola {
+    width: 25%;
+}
+.container.cartaoescola{
+	min-width: 300px;
+	max-width: 90vw;
+	min-height: 30vh;
+	background-color: white;
+	border-radius: 15px;
+	padding: 1rem;
+	display: grid;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.titulo-corpo.cartaoescola{
+	margin-top: 1rem;
+	display: block;
+}
+.card-title.cartaoescola{
+	margin-top: auto;
+	margin-bottom: auto;
+}
+.col.cartaoescola.botao{
+	display: flex;
+	margin-top: auto;
+	margin-bottom: auto;
+	justify-content: flex-end;
+	margin-right: 3vw;
+}
+.col.cartaoescola.titulo{
+	margin-top: auto;
+	margin-bottom: auto;
+	padding-left: 5vw;
+}
+.col.img.cartaoescola{
+	min-width: 240px;
+	min-height: 180px;
+	padding: 0px;
+}
+.col.cartaoescola{
+	padding-top: 2vh;
+	min-width: 240px;
+}
 
 /*CARDS ALUNOS*/
 .meu-container-cards {
@@ -76,7 +155,6 @@ body {
 	margin-right: auto;
 	padding: 0px;
 }
-
 .col.cartaoaluno{
 	border-radius: 15px;
 	position: relative;
@@ -87,7 +165,6 @@ body {
 	padding-top: 2rem;
 
 }
-
 .col.cartaoaluno.md{
 	margin-bottom: auto;
 	border-radius: 0px;
@@ -118,12 +195,12 @@ body {
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: left;
+    padding-bottom: 0.2rem;
 }
 .text-icon.icon{
 	margin-bottom: auto;
 	margin-top: auto;
 }
-
 .col.cartaoaluno.botao{
 	display: flex;
 	justify-content: flex-end;
@@ -135,7 +212,6 @@ body {
 
 	max-width: 118;
 }
-
 .btn.btn-warning{
 	background-color: #F27141;
 	border-color: unset;
@@ -144,15 +220,9 @@ body {
 .row.cartaoaluno{
 	padding: 0;
 }
-
 .materiais-doados{
 	padding-left: 10%;
 }
-
-.container{
-	font-family: 'Poppins';
-}
-
 
 /*FOOTER*/
 .rodape-menu {

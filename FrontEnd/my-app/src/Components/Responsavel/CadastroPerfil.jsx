@@ -1,5 +1,5 @@
 import React from 'react'
-import "./StyleResponsavel.css"
+import '../../css/AppStyle.css';
 import axios from 'axios'
 import { Component } from 'react'
 
