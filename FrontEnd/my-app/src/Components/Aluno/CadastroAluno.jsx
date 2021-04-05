@@ -223,7 +223,7 @@ class CadastroAluno extends Component {
 						<Link to='/home'>
 							<button className="botao btn btn-secondary" type="button" >Voltar</button>
 						</Link>
-						<button className="botao btn botao-enviar ml-3" type="submit" >Avançar</button>
+						<button className="botao btn botao-enviar ml-3" type="submit" >Enviar</button>
 					</form>
 				</div>
 			</div>
