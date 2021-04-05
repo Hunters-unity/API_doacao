@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Style.css";
+import "./StyleEscola.css";
 import axios from "axios"
 
 class CadastroEscola extends Component {

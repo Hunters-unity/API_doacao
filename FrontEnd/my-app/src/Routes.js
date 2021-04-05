@@ -19,8 +19,8 @@ function Rotas() {
                 <Route path="/cadastroResponsavel" component={FormCadastro}/>
                 <Route path="/cadastroAluno" component={CadastroAluno}/>
                 <Route path="/doacao" component={PaginaDoacao}/>
-                <Route path="/" exact component={Home} />
-                <Route path="/landing" component={Landing}/>
+                <Route path="/home" component={Home} />
+                <Route path="/" exact component={Landing}/>
                 <Route path="/login" component={LoginResponsavel}/>
                 <Route path="/escolas" component={CardEscola}/>
             </Switch>

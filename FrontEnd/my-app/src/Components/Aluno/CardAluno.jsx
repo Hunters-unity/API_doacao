@@ -19,7 +19,7 @@ class CardAluno extends Component {
         this.listaDoados = { id: [], nome: [] }
 
     }
-    //adciona item na lista a ser doada
+    //adiciona item na lista a ser doada
     handlerAddItem(evento) {
         var doar = evento.target.checked;
         var index = this.state.listaMateriais.nome.indexOf(evento.target.name)

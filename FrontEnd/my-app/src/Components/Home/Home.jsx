@@ -11,6 +11,10 @@ class Home extends Component {
         return (
             <div className="corpo">
                 <main>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+                        <button class="btn botao-login my-2 my-sm-0" type="submit">Search</button>
+                    </form>
                     <section className="secao-home">
                         <div className="container mt-5">
                             <h2 className="titulo-2">Listas Recentes</h2>
