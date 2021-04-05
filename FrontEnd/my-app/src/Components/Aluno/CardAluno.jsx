@@ -116,7 +116,7 @@ class CardAluno extends Component {
                         </form>
                     </div>
                     <div className="col cartaoaluno botao">
-                        <a className="botao-doacao"><button className="btn btn-warning">Doar Agora</button></a>
+                        <button className="btn botao botao-enviar">Doar Agora</button>
                     </div>
 
                 </div>

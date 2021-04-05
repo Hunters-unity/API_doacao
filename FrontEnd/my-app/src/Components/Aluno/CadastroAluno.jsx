@@ -168,7 +168,7 @@ class CadastroAluno extends Component {
 										<p><label><input className="checkbox-lista" type="checkbox" name="Estojo" />Estojo</label></p>
 										<p><label><input className="checkbox-lista" type="checkbox" name="Hidrocor" /></label>Hidrocor</p>
 										<p><label><input className="checkbox-lista" type="checkbox" name="Lápis" />Lápis</label></p>
-										<p><label><input className="checkbox-lista" type="checkbox" name="" />Lápis de Cor</label>Lápis de Cor</p>
+										<p><label><input className="checkbox-lista" type="checkbox" name="" />Lápis de Cor</label></p>
 										<p><label><input className="checkbox-lista" type="checkbox" name="" />Marcador de Texto</label>Marcador de Texto</p>
 										<p><label><input className="checkbox-lista" type="checkbox" name="Mochila" />Mochila</label></p>
 										<p><label><input className="checkbox-lista" type="checkbox" name="Régua" />Régua</label></p>
@@ -188,7 +188,7 @@ class CadastroAluno extends Component {
 							</div>
 						</div>
 						<a href="cadastro-responsavel.html"><button className="botao btn btn-secondary" type="button" >Voltar</button></a>
-						<button className="botao btn botao-enviar ml-3" type="submit">Avançar</button>
+						<button className="botao btn botao-enviar ml-3" type="submit">Enviar</button>
 					</form>
 				</div>
 			</div>

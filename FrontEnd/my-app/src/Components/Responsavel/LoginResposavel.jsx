@@ -39,7 +39,8 @@ class LoginResponsavel extends Component {
                             <label htmlFor="senha"><b>Senha:</b></label>
                             <input className="form-control" type="password" id="senha" onChange={async (evento) => await this.setState({ senha: evento.target.value })} required="" />
                         </div>
-                        <button className="btn btn-primary" type="submit">Login</button>
+                       
+                        <button className="btn botao botao-enviar mt-4 w-25" type="submit">Login</button>
                     </form>
                 </div>
             </div>

@@ -10,7 +10,8 @@ import NavBar from './Components/Nav/Nav'
 import LoginResponsavel from './Components/Responsavel/LoginResposavel'
 import CardEscola from './Components/Escola/CardEscola'
 import Escolas from './Components/Escola/Escolas'
-
+import PaginaNaoEncontrado from './Components/Nav/NaoEncontrado'
+import SucessoDoacao from './Components/Nav/SucessoDoacao'
 
 function Rotas() {
     return (
@@ -26,6 +27,8 @@ function Rotas() {
                 <Route path="/login" component={LoginResponsavel}/>
                 <Route path="/escolas/" component={Escolas}/>
                 <Route path="/paginaerro" component={PaginaErro}/>
+                <Route path="/naoencontrado" component={PaginaNaoEncontrado}/>
+                <Route path="/sucessodoacao" component={SucessoDoacao}/>
             </Switch>
         </Router>
     )

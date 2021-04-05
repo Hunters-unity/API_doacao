@@ -10,6 +10,20 @@ body {
 	display: block;
 	margin: 5% auto;
 }
+.imagem-nao-encontrado {
+	display: inline-block;
+	height: 50vh;
+}
+.imagem-sucesso {
+	width: 40%;
+	display: block;
+	margin: auto;
+}
+.texto-sucesso {
+	color: #5503a6;
+	text-align: center;
+	font-size: 2.5em;
+}
 .titulo-1 {
     font-size: 3em;
     font-weight: bold;
@@ -38,9 +52,6 @@ body {
 .botao {
     border-radius: 5px;
     padding: 0.7em;
-}
-.botao:hover{
-	padding: 1em;
 }
 .botao-enviar {
     background-color: #f27141;
@@ -199,11 +210,22 @@ label {
 }
 
 /*CARDS ALUNOS*/
-.meu-container-cards {
-    max-height: 70vh;
-	overflow-y: auto;
-    overflow-x: hidden;
+/*.botao-doacao{
+	position: relative;
+	max-width: 118;
 }
+.btn.btn-warning{
+	background-color: #F27141;
+	border-color: unset;
+	color: white;
+}*/
+.col.cartaoaluno.botao{
+	display: flex;
+	justify-content: flex-end;
+	align-self: flex-end;
+	margin-top: 2vh;
+}
+
 .col.img.cartaoaluno{
 	min-width: 130px;
 	display: flex;
@@ -248,6 +270,17 @@ label {
 	font-size: 16px;
 	background-color: white;
 }
+.materiais-doados{
+	padding-left: 10%;
+}
+.meu-container-cards {
+    max-height: 70vh;
+	overflow-y: auto;
+    overflow-x: hidden;
+}
+.row.cartaoaluno{
+	padding: 0;
+}
 .text-icon{
 	display: flex;
 	flex-wrap: nowrap;
@@ -258,28 +291,7 @@ label {
 	margin-bottom: auto;
 	margin-top: auto;
 }
-.col.cartaoaluno.botao{
-	display: flex;
-	justify-content: flex-end;
-	align-self: flex-end;
-	margin-top: 2vh;
-}
-.botao-doacao{
-	position: relative;
 
-	max-width: 118;
-}
-.btn.btn-warning{
-	background-color: #F27141;
-	border-color: unset;
-	color: white;
-}
-.row.cartaoaluno{
-	padding: 0;
-}
-.materiais-doados{
-	padding-left: 10%;
-}
 
 /*FOOTER LANDING PAGE*/
 .rodape-menu {
