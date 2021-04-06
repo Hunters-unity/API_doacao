@@ -19,7 +19,7 @@ const PerfilController = {
             }else{
                 return res.status(400).send({
                     erro: "Requisição mal feita"
-                })
+                }) 
             }
         } catch (error) {
             return res.status(400).send({"erro": error.message})

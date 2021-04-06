@@ -2,13 +2,15 @@ import React, { Component } from "react";
 import '../../css/AppStyle.css';
 import axios from "axios"
 import imagemEscola from '../Imagens/escola-1.jpg'
+import { Redirect } from "react-router";
+
 
 class CadastroEscola extends Component {
     constructor() {
         super();
         this.state = {
             nome: "", cep: "", endereco: "", estado: "", numero: "",
-            cidade: "", bairro: "", tipo: "Estadual", telefone: ""
+            cidade: "", bairro: "", tipo: "Estadual", telefone: "", redirect: false
         }
 
     }
@@ -68,7 +70,6 @@ class CadastroEscola extends Component {
                         this.setState({ cidade: endereco.localidade })
                         document.getElementById('estado').value = (endereco.uf);
                         this.setState({ estado: endereco.uf })
-                        console.log(response)
                     }
                 });
             }
@@ -83,6 +84,9 @@ class CadastroEscola extends Component {
     }
 
     render() {
+        if (this.state.redirect) {
+            return (<Redirect to='/home' />)
+        }
         return (
             <div className="corpo">
                 <div class="card-cadastro-escola">
@@ -92,10 +96,10 @@ class CadastroEscola extends Component {
 
                 <div className="container">
 
-                    <form onSubmit={(event) => {
-                        console.log(this.state)
-                        axios.post('http://localhost:3001/escolas/cadastrar', this.state).then((response) => console.log(response)).catch((erro) => console.log(erro))
-                        event.preventDefault()
+                    <form onSubmit={async (event) => {
+                        await axios.post('http://localhost:3001/escolas/cadastrar', this.state).catch((erro) => console.log(erro))
+                        event.preventDefault();
+                        this.setState({ redirect: true })
                     }}>
                         <fieldset className="informacoes-escola">
                             <div className="form-row">

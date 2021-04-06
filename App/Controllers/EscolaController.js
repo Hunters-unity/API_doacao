@@ -40,7 +40,6 @@ const EscolaController = {
 
             }
             if (req.query.nome !== undefined) {
-                console.log(match.nome)
                 const escolas = await Escola.find({nome: {$regex: match.nome}}).sort({ dataAdicao: -1 });
                 return res.status(200).send({ escolas });
 

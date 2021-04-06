@@ -18,7 +18,6 @@ class Alunos extends Component {
     async componentDidMount() {
 
         const url = `http://localhost:3001/aluno/listar/${this.props.location.search}`
-        console.log(url + "url")
         await axios.get(url).then(response => {
             if (response.data.alunos !== undefined) {
                 var listaTemp = [];
@@ -26,7 +25,6 @@ class Alunos extends Component {
                     listaTemp.push(element._id)
                 })
                 this.setState({ listaAlunos: listaTemp })
-                console.log(this.state.listaAlunos)
             }
         })
     }

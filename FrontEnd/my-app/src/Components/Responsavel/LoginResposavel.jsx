@@ -22,7 +22,6 @@ class LoginResponsavel extends Component {
                     <form className='form-login' onSubmit={
                         event => {
                             axios.post('http://localhost:3001/perfil/logar', { email: this.state.email, senha: this.state.senha }).then(res => {
-                                console.log(res.data.existe)
                                 if (res.data.existe === false) {
                                     alert("email ou senha inválidos")
                                 }

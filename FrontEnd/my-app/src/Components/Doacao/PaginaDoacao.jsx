@@ -43,7 +43,6 @@ class PaginaDoacao extends Component {
         this.setState({
             listaDoados: { nome: listaTemp, id: listaId }
         })
-        console.log(this.state)
     }
 
     render() {

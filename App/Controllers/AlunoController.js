@@ -47,7 +47,6 @@ const AlunoController = {
 
             }
             if (req.query.escola !== undefined) {
-                console.log(match.escola)
                 const alunos = await Aluno.find(req.query).sort({ dataAdicao: -1 });
                 return res.status(200).send({ alunos });
 
