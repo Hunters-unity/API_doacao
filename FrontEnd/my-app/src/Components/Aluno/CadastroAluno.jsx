@@ -48,7 +48,6 @@ class CadastroAluno extends Component {
 			atualizaLista = this.removeItemOnce(this.state.aluno.listaDoacao, evento.target.name)
 		}
 		this.setState({ aluno: { ...this.state.aluno, listaDoacao: atualizaLista } })
-		console.log(this.state.aluno)
 	}
 	removeItemOnce(arr, value) {
 		var index = arr.indexOf(value);
@@ -63,7 +62,6 @@ class CadastroAluno extends Component {
 			if (String(this.props.location.search).length > 0) {
 				var responsavelID = String(this.props.location.search).substr(1)
 				await this.setState({ aluno: { ...this.state.aluno, responsavel: responsavelID } })
-				console.log(this.state.aluno.responsavel)
 			}
 			else {
 				this.setState({ redirect: true })
@@ -144,7 +142,6 @@ class CadastroAluno extends Component {
 								<label htmlFor="nome-escola"><strong>Nome da sua Escola</strong></label>
 								<select className="form-control" id="nome-escola" required onChange={event => {
 									var index = this.state.escola.nome.indexOf(event.target.value)
-									console.log(event.target.value + " " + index)
 									this.setState({ aluno: { ...this.state.aluno, escola: this.state.escola.id[index - 1] } })
 								}}>
 									{this.state.escola.nome.map((categoria) => {
@@ -179,12 +176,7 @@ class CadastroAluno extends Component {
 						</fieldset>
 					</form>
 					<hr />
-					<form id="form-inclui-materiais" onSubmit={async (event) => {
-						await axios.post('http://localhost:3001/aluno/cadastrar', this.state.aluno);
-						console.log("cadastro")
-						event.preventDefault()
-						this.setState({redirect: true})
-					}}>
+					<form id="form-inclui-materiais" >
 						<div className="container pl-0">
 							<h2 className="titulo-3 ml-0">Lista de Materiais</h2>
 							<p className="titulo-5 ml-0">Selecione os materiais que gostaria de receber como doação.<br />Lembre-se de solicitar somente o que realmente precisa, para que todos possam receber auxílio!</p>
@@ -220,7 +212,11 @@ class CadastroAluno extends Component {
 								</div>
 							</div>
 						</div>
-						<Link to='/home'>
+						<Link to='/home' onSubmit={async (event) => {
+							await axios.post('http://localhost:3001/aluno/cadastrar', this.state.aluno);
+							event.preventDefault()
+							this.setState({ redirect: true })
+						}}>
 							<button className="botao btn btn-secondary" type="button" >Voltar</button>
 						</Link>
 						<button className="botao btn botao-enviar ml-3" type="submit" >Enviar</button>
