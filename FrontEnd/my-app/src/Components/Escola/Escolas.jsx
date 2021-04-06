@@ -24,7 +24,6 @@ class Escolas extends Component {
                     listaTemp.push(element._id)
                 })
                 this.setState({ listaEscolas: listaTemp })
-                console.log(this.state.listaEscolas)
             }
         })
     }

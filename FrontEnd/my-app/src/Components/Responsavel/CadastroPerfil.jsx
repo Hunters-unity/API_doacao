@@ -26,7 +26,6 @@ class FormCadastro extends Component {
                 <div className="container">
                     <h2 className="titulo-4">Informações de Acesso</h2>
                     <form onSubmit={(event) => {
-                        console.log(this.state)
                         axios.post('http://localhost:3001/perfil/cadastrar', this.state);
                         event.preventDefault()
                         this.setState({ redirect: true })
