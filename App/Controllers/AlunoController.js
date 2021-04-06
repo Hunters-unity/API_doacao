@@ -53,7 +53,7 @@ const AlunoController = {
 
             }
             else {
-                const alunos = await Escola.find(match).sort({ dataAdicao: -1 });
+                const alunos = await Aluno.find().sort({ dataAdicao: -1 });
                 return res.status(200).send({ alunos });
 
             }
